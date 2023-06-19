@@ -18,7 +18,6 @@ public class DispatcherServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		String propLoc = config.getInitParameter("propLoc");
-
 		mappings = new HandlerMapping(propLoc);
 
 	}
@@ -32,10 +31,8 @@ public class DispatcherServlet extends HttpServlet {
 
 		Controller ctrl = mappings.getController(uri);
 		String callPage = ctrl.handleRequest(request, response);
-		// System.out.println("jsp : " + callPage);
 
 		if (callPage.startsWith("redirect:")) {
-
 			response.sendRedirect(callPage.substring("redirect:".length()));
 		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(callPage);

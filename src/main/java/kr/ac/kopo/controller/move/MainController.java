@@ -1,16 +1,15 @@
-package kr.ac.kopo.controller;
+package kr.ac.kopo.controller.move;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LogoutController implements Controller {
+import kr.ac.kopo.controller.Controller;
 
+public class MainController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-
-//		System.out.println("LogoutController  handleRequest() »£√‚..");
-
-		return "/jsp/login/logout.jsp";
+		
+		return "/jsp/index.jsp";
 	}
 
 }

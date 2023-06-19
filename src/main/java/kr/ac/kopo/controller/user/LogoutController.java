@@ -5,11 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.ac.kopo.controller.Controller;
 
-public class LoginController implements Controller {
+public class LogoutController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-		return "/jsp/login/loginForm.jsp";
+//		System.out.println("LogoutController  handleRequest() »£√‚..");
+		return "/jsp/login/logout.jsp";
 	}
 }

@@ -57,10 +57,10 @@
 			<a href="#">회원가입</a>
 		</div>
 		<div class="menu-item1">
-			<a href="#">은행소개</a>
+			<a href="${ pageContext.request.contextPath }/introduce.do">은행소개</a>
 		</div>
 	</div>
-	<a href="home.do">
+	<a href="${ pageContext.request.contextPath }/main.do">
 		<img src="${ pageContext.request.contextPath }/images/logo2.png" alt="로고" class="logo1">
 	</a>
 	<div class="menu-bar2">
