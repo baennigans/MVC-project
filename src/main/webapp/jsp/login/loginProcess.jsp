@@ -2,5 +2,10 @@
 	pageEncoding="UTF-8"%>
 <script>
 	alert('${msg}')
-	location.href = "${ pageContext.request.contextPath }"
+	
+	if('${login}'=='true'){
+		location.href = "${ pageContext.request.contextPath }/main.do"
+	}else{
+		location.href = "${ pageContext.request.contextPath }/login.do"	
+	}
 </script>

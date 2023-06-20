@@ -66,15 +66,4 @@ public class HandlerMapping {
 
 		return mappings.get(uri);
 	}
-
-	/*
-	 * public static void main(String[] args) throws Exception { // java.util.Random
-	 * r = new java.util.Random(); // System.out.println(r.nextInt());
-	 * 
-	 * Class<?> clz = Class.forName("java.util.Random");
-	 * 
-	 * Constructor<?> constructor = clz.getConstructor(); Object obj =
-	 * constructor.newInstance(); System.out.println("³­¼ö : " +
-	 * ((java.util.Random)obj).nextInt()); }
-	 */
 }

@@ -10,7 +10,6 @@ public class LogoutController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-//		System.out.println("LogoutController  handleRequest() »£√‚..");
 		return "/jsp/login/logout.jsp";
 	}
 }

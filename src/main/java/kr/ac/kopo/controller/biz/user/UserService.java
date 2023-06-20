@@ -12,4 +12,9 @@ public class UserService {
 		userDao.insertUser(vo);
 	}
 
+	public UserVO getUser(UserVO vo) {
+		UserVO user = userDao.getUser(vo);
+		return user;
+	}
+
 }

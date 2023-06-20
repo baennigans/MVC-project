@@ -1,5 +1,7 @@
 package kr.ac.kopo.controller.user;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +13,13 @@ public class InsertUserProcessController implements Controller{
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
@@ -19,15 +28,6 @@ public class InsertUserProcessController implements Controller{
 		String phone = request.getParameter("phone1")+request.getParameter("phone2")+request.getParameter("phone3");
 		String gender = request.getParameter("gender");
 		String role = request.getParameter("role");
-
-		System.out.println(id);
-		System.out.println(password);
-		System.out.println(name);
-		System.out.println(birth);
-		System.out.println(email);
-		System.out.println(phone);
-		System.out.println(gender);
-		System.out.println(role);
 		
 		UserVO vo = new UserVO();
 		vo.setId(id);

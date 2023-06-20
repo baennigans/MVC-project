@@ -66,7 +66,7 @@ a {
 			<a href="${ pageContext.request.contextPath }/main.do">
 				<img src="${ pageContext.request.contextPath }/images/logo1.png" alt="Bank 로고" class="logo-img">
 			</a>
-			<form action="${ pageContext.request.contextPath }/main.do" method="post">
+			<form action="${ pageContext.request.contextPath }/loginProcess.do" method="post">
 				<input type="text" name="id" id="id" placeholder="아이디를 입력하세요."/>
 				<input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요."/>
 				<input type="submit" value="로그인" id="login" />
