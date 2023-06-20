@@ -25,14 +25,12 @@ public class LoginProcessController implements Controller {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", vo);
 			request.setAttribute("msg", vo.getId()+" 님 안녕하세요.");
-			request.setAttribute("login", "true");
+			session.setAttribute("login", "true");
 		} else {
 			request.setAttribute("msg", "아이디 또는 비밀번호를 잘못입력하였습니다.");
-			request.setAttribute("login", "false");
 		}
 
-		return "jsp/login/loginProcess.jsp"; // forword시킨것
-		// return "redirect:"+request.getContextPath();
+		return "jsp/login/loginProcess.jsp";
 	}
 
 }
