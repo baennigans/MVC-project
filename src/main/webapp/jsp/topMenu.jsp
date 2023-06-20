@@ -51,10 +51,10 @@
 <body>
 	<div class="menu-bar1">
 		<div class="menu-item1">
-			<a href="#">로그인</a>
+			<a href="${ pageContext.request.contextPath }/login.do">로그인</a>
 		</div>
 		<div class="menu-item1">
-			<a href="#">회원가입</a>
+			<a href="${ pageContext.request.contextPath }/insertUser.do">회원가입</a>
 		</div>
 		<div class="menu-item1">
 			<a href="${ pageContext.request.contextPath }/introduce.do">은행소개</a>
