@@ -79,7 +79,7 @@ td:last-child {
 			<table>
 				<tr>
 					<td>
-						<form action="${ pageContext.request.contextPath }/findID.do" method="post" class="findID">
+						<form action="${ pageContext.request.contextPath }/findIDProcess.do" method="post" class="findID">
 							<h2>아이디 찾기</h2>
 							<input type="text" name="name" id="name1" placeholder="이름을 입력하세요."/>
 							<input type="text" name="phone" id="phone1" placeholder="휴대전화번호를 입력하세요."/>
@@ -87,7 +87,7 @@ td:last-child {
 						</form>
 					</td>
 					<td>
-						<form action="${ pageContext.request.contextPath }/findPW.do" method="post" class="findPW">
+						<form action="${ pageContext.request.contextPath }/findPWProcess.do" method="post" class="findPW">
 							<h2>비밀번호 찾기</h2>
 							<input type="text" name="id" id="id" placeholder="아이디를 입력하세요."/>
 							<input type="text" name="name" id="name2" placeholder="이름을 입력하세요."/>

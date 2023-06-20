@@ -17,4 +17,9 @@ public class UserService {
 		return user;
 	}
 
+	public UserVO getUserID(UserVO vo) {
+		UserVO user = userDao.getUserID(vo);
+		return user;
+	}
+
 }

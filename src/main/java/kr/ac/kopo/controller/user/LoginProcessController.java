@@ -20,11 +20,12 @@ public class LoginProcessController implements Controller {
 		vo.setId(id);
 		vo.setPassword(password);
 		UserService service = new UserService();
-
+		vo = service.getUser(vo);
+		
 		if (service.getUser(vo) != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", vo);
-			request.setAttribute("msg", vo.getId()+" 님 안녕하세요.");
+			request.setAttribute("msg", vo.getName()+" 님 안녕하세요.");
 			session.setAttribute("login", "true");
 		} else {
 			request.setAttribute("msg", "아이디 또는 비밀번호를 잘못입력하였습니다.");
