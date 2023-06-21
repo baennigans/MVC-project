@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +46,7 @@ a {
 	text-decoration: none;
 }
 </style>
+
 <%
 String msg = (String) request.getAttribute("msg");
 if (msg != null && !msg.isEmpty()) {
@@ -55,10 +57,23 @@ alert('<%= msg %>');
 <%
 }
 %>
+
 <script>
-	var genderValue = ${user.gender};
-	var displayValue = (genderValue === 0) ? "female" : "male";
-	document.getElementById("gender").value = displayValue;
+	function checkForm1() {
+		if (confirm("정보를 수정하시겠습니까?")) {
+			return true
+		} else {
+			return false
+		}
+	}
+
+	function checkForm2() {
+		if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
+			return true
+		} else {
+			return false
+		}
+	}
 </script>
 </head>
 <body>
@@ -70,11 +85,12 @@ alert('<%= msg %>');
 		<a href="${ pageContext.request.contextPath }/main.do">
 			<img src="${ pageContext.request.contextPath }/images/logo4.png" alt="로고" class="logo-img">
 		</a>
-			<form action="updateUserProcess.do" method="post">
+			<form action="updateUserProcess.do" method="post" onsubmit="return checkForm1()">
+				<input type="hidden" name="id" value="${user.id}" />
 				<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" id="id" value="${user.id}" disabled/>
+					<td><input type="text" id="id" value="${user.id}" disabled/>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -105,13 +121,27 @@ alert('<%= msg %>');
 				<tr>
 					<td>성별</td>
 					<td>
-						<input type="text" name="gender" id="gender" value="${user.gender}" disabled/>
+						<c:choose>
+    						<c:when test="${user.gender == '1'}">
+        						<input type="text" name="gender" id="gender" value="남성" disabled/>
+    						</c:when>
+    						<c:otherwise>
+        						<input type="text" name="gender" id="gender" value="여성" disabled/>
+    						</c:otherwise>
+						</c:choose>
 					</td>
 				</tr>
 				<tr>
 					<td>권한</td>
 					<td>
-						<input type="text" name="role" id="role" value="${user.role}" disabled/>
+						<c:choose>
+    						<c:when test="${user.role == '1'}">
+        						<input type="text" name="role" id="role" value="관리자(Admin)" disabled/>
+    						</c:when>
+    						<c:otherwise>
+        						<input type="text" name="role" id="role" value="사용자(User)" disabled/>
+    						</c:otherwise>
+						</c:choose>
 					</td>
 				</tr>
 				<tr>
@@ -119,6 +149,7 @@ alert('<%= msg %>');
 				</tr>
 				</table>
 			</form>
+			<br/><a href="${ pageContext.request.contextPath }/deleteUser.do" onclick="return confirm('정말로 회원 탈퇴하시겠습니까?')">회원탈퇴하기</a>
 		</div>
 	</section>
 	<footer>

@@ -27,4 +27,8 @@ public class UserService {
 		return user;
 	}
 
+	public void updateUser(UserVO vo) {
+		userDao.updateUser(vo);
+	}
+
 }

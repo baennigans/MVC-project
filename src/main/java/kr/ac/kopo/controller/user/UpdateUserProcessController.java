@@ -4,12 +4,13 @@ import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.user.UserService;
 import kr.ac.kopo.controller.biz.user.UserVO;
 
-public class InsertUserProcessController implements Controller{
+public class UpdateUserProcessController implements Controller{
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -23,31 +24,27 @@ public class InsertUserProcessController implements Controller{
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-		String birth = request.getParameter("birth");
-		String email = request.getParameter("emailId")+"@"+request.getParameter("emailDomain");
-		String phone = request.getParameter("phone1")+request.getParameter("phone2")+request.getParameter("phone3");
-		String gender = request.getParameter("gender");
-		String role = request.getParameter("role");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
 		
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setPassword(password);
 		vo.setName(name);
-		vo.setBirth(birth);
 		vo.setEmail(email);
 		vo.setPhone(phone);
-		vo.setGender(gender);
-		vo.setRole(role);
-
+		
 		UserService service = new UserService();
 
-		if (id == "" || password == "" || name == "" || birth == "") {
+		if (password == "" || name == "" || email == "" || phone == "") {
 			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
-			return "jsp/user/insertUser.jsp";
+			return "jsp/user/myPage.jsp";
 		} else {
-			service.insertUser(vo);
-			request.setAttribute("msg", "회원가입이 완료되었습니다.");
-			return "jsp/user/loginForm.jsp";
+			service.updateUser(vo);
+			request.setAttribute("msg", "정보수정이 완료되었습니다. 다시 로그인하세요.");
+			HttpSession session = request.getSession();
+			session.invalidate();
+			return "jsp/user/logoutProcess.jsp";
 		}
 	}
 }
