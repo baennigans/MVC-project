@@ -51,7 +51,9 @@
 
 <body>
 	<div class="menu-bar1">
+		
 		<c:choose>
+		
 		<c:when test="${ empty login }">
 	
 		<div class="menu-item1">
@@ -62,38 +64,17 @@
 		</div>
 		
 		</c:when>
+		
 		<c:otherwise>
-		
-		
-		
-		
 		<div class="menu-item1">
-			<a href="${ pageContext.request.contextPath }/insertUser.do">마이페이지</a>
+			<a href="${ pageContext.request.contextPath }/myPage.do">마이페이지</a>
 		</div>
 		<div class="menu-item1">
 			<a href="${ pageContext.request.contextPath }/logout.do">로그아웃</a>
 		</div>
-		
-		
-		
-		
-		
-		
-		
 		</c:otherwise>
+		
 		</c:choose>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		<div class="menu-item1">
 			<a href="${ pageContext.request.contextPath }/introduce.do">은행소개</a>

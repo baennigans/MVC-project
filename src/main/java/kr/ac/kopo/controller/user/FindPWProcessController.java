@@ -35,11 +35,11 @@ public class FindPWProcessController implements Controller {
 		if (service.getUserPW(vo) != null) {
 			request.setAttribute("name", vo.getName());
 			request.setAttribute("password", vo.getPassword());
-			return "jsp/login/findPW.jsp";
+			return "jsp/user/findPW.jsp";
 			
 		} else {
 			request.setAttribute("msg", "일치하는 회원정보가 없습니다.");
-			return "jsp/login/findUser.jsp";
+			return "jsp/user/findUser.jsp";
 		}
 	}
 }

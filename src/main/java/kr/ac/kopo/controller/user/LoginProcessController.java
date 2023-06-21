@@ -31,7 +31,7 @@ public class LoginProcessController implements Controller {
 			request.setAttribute("msg", "아이디 또는 비밀번호를 잘못입력하였습니다.");
 		}
 
-		return "jsp/login/loginProcess.jsp";
+		return "jsp/user/loginProcess.jsp";
 	}
 
 }

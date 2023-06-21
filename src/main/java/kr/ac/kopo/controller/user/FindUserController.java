@@ -10,6 +10,6 @@ public class FindUserController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-		return "/jsp/login/findUser.jsp";
+		return "/jsp/user/findUser.jsp";
 	}
 }
