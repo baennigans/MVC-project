@@ -93,6 +93,9 @@
 		<div class="menu-item2">
 			<a href="#">계좌개설</a>
 		</div>
+		<div class="menu-item2">
+			<a href="${ pageContext.request.contextPath }/board.do">게시판</a>
+		</div>
 	</div>
 	<div class="red-line"></div>
 </body>
