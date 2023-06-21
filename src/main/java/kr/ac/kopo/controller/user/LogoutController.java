@@ -16,6 +16,6 @@ public class LogoutController implements Controller {
 		
 		request.setAttribute("msg", "로그아웃되었습니다 안녕히가세요.");
 		
-		return "/jsp/user/logoutProcess.jsp";
+		return "jsp/user/logoutProcess.jsp";
 	}
 }
