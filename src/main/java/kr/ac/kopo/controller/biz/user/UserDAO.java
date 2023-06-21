@@ -97,4 +97,34 @@ public class UserDAO {
 		}
 		return user;
 	}
+
+
+	public UserVO getUserPW(UserVO vo) {
+		UserVO user = null;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(USER_GETPW);
+			stmt.setString(1, vo.getId());
+			stmt.setString(2, vo.getName());
+			stmt.setString(3, vo.getPhone());
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				user = new UserVO();
+				user.setId(rs.getString("user_id"));
+				user.setPassword(rs.getString("user_pw"));
+				user.setEmail(rs.getString("user_email"));
+				user.setName(rs.getString("user_name"));
+				user.setBirth(rs.getString("user_birth"));
+				user.setPhone(rs.getString("user_phone"));
+				user.setGender(rs.getString("user_gender"));
+				user.setAgree(rs.getString("user_agree"));
+				user.setRole(rs.getString("role"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+		return user;
+	}
 }

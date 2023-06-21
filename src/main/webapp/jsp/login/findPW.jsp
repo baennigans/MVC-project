@@ -48,8 +48,8 @@ a {
 				<img src="${ pageContext.request.contextPath }/images/logo4.png" alt="로고" class="logo-img">
 			</a>
 			<div class="container2">
-				<h2>OOO 님의 비밀번호는</h2>
-				<h2>OOO 입니다.</h2>
+				<h2>'<%= request.getAttribute("name") %>' 님의 비밀번호는</h2>
+				<h2>'<%= request.getAttribute("password") %>' 입니다.</h2>
 			</div>
 			<br /> <a href="${ pageContext.request.contextPath }/login.do">로그인 화면으로 이동</a>
 		</div>

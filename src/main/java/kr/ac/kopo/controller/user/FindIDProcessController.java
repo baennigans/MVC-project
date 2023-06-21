@@ -33,10 +33,11 @@ public class FindIDProcessController implements Controller {
 		if (service.getUserID(vo) != null) {
 			request.setAttribute("name", vo.getName());
 			request.setAttribute("id", vo.getId());
-			return "findID.do";
+			return "jsp/login/findID.jsp";
+			
 		} else {
 			request.setAttribute("msg", "일치하는 회원정보가 없습니다.");
-			return "findUser.do";
+			return "jsp/login/findUser.jsp";
 		}
 	}
 }

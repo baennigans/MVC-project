@@ -22,4 +22,9 @@ public class UserService {
 		return user;
 	}
 
+	public UserVO getUserPW(UserVO vo) {
+		UserVO user = userDao.getUserPW(vo);
+		return user;
+	}
+
 }

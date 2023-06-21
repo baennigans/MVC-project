@@ -13,8 +13,8 @@ public class LogoutController implements Controller {
 
 		HttpSession session = request.getSession();
 		session.invalidate();
-		request.setAttribute("msg", "로그아웃되었습니다 안녕히가세요.");
 		
+		request.setAttribute("msg", "로그아웃되었습니다 안녕히가세요.");
 		
 		return "/jsp/login/logoutProcess.jsp";
 	}
