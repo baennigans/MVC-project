@@ -40,10 +40,14 @@ table td {
 	border: none;
 	border-radius: 3px;
 }
-a {
+#deleteUser {
+	width: 376px;
+	padding: 15px;
 	margin-top: 10px;
-	color: #B90000;
-	text-decoration: none;
+	background-color: #800000;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
 }
 </style>
 
@@ -85,7 +89,7 @@ alert('<%= msg %>');
 		<a href="${ pageContext.request.contextPath }/main.do">
 			<img src="${ pageContext.request.contextPath }/images/logo4.png" alt="로고" class="logo-img">
 		</a>
-			<form action="updateUserProcess.do" method="post" onsubmit="return checkForm1()">
+			<form action="${ pageContext.request.contextPath }/updateUser.do" method="post" onsubmit="return checkForm1()">
 				<input type="hidden" name="id" value="${user.id}" />
 				<table>
 				<tr>
@@ -149,7 +153,10 @@ alert('<%= msg %>');
 				</tr>
 				</table>
 			</form>
-			<br/><a href="${ pageContext.request.contextPath }/deleteUser.do" onclick="return confirm('정말로 회원 탈퇴하시겠습니까?')">회원탈퇴하기</a>
+			<form action="${ pageContext.request.contextPath }/deleteUser.do" method="post" onsubmit="return checkForm2()">
+				<input type="hidden" name="id" value="${user.id}" />
+				<input type="submit" value="회원탈퇴하기" id="deleteUser" />
+			</form>
 		</div>
 	</section>
 	<footer>

@@ -18,6 +18,7 @@ public class UserDAO {
 	private static String USER_GETID = "select * from B_USER where user_name=? and user_phone=? ";
 	private static String USER_GETPW = "select * from B_USER where user_id=? and user_name=? and user_phone=? ";
 	private static String USER_UPDATE = "update B_USER set user_pw=?, user_email=?, user_name=?, user_phone=? where user_id=? ";
+	private static String USER_DELETE = "delete B_USER where user_id=? ";
 	
 	
 	
@@ -139,6 +140,20 @@ public class UserDAO {
 			stmt.setString(3, vo.getName());
 			stmt.setString(4, vo.getPhone());
 			stmt.setString(5, vo.getId());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+
+
+	public void deleteUser(UserVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(USER_DELETE);
+			stmt.setString(1, vo.getId());
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
