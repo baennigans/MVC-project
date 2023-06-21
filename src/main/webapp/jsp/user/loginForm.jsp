@@ -6,13 +6,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+#menu {
+	display: flex;
+	width: 1000px;
+	font-size: 20px;
+	color: #A52A2A;
+	margin: 0 auto;
+	margin-top: 10px;
+}
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 1000px;
-	margin: 100px auto;
+	margin: 0 auto;
+	margin-bottom: 100px;
 	padding: 50px 0;
 	background-color: #d2d2d2;
 	border-radius: 5px;
@@ -20,6 +29,7 @@
 }
 .logo-img{
 	width:300px;
+	padding: 20px;
 }
 form {
 	padding: 5px;
@@ -51,7 +61,6 @@ form {
 }
 a {
 	margin-top: 20px;
-	padding: 20px;
 	color: #B90000;
 	text-decoration: none;
 }
@@ -72,6 +81,9 @@ alert('<%= msg %>');
 		<jsp:include page="../topMenu.jsp" />
 	</header>
 	<section>
+		<div id="menu">
+			<h1>회원로그인</h1>
+		</div>
 		<div class="container">
 			<a href="${ pageContext.request.contextPath }/main.do">
 				<img src="${ pageContext.request.contextPath }/images/logo1.png" alt="Bank 로고" class="logo-img">
@@ -83,10 +95,9 @@ alert('<%= msg %>');
 			</form>
 				<input type="submit" value="카카오 로그인" id="kakaologin" />
 			<br />
-			<div>
-				<a href="${ pageContext.request.contextPath }/insertUser.do">회원가입하기</a>
 				<a href="${ pageContext.request.contextPath }/findUser.do">아이디/비밀번호찾기</a>
-			</div>
+				<a href="${ pageContext.request.contextPath }/insertUser.do">회원가입하기</a>
+			
 		</div>
 	</section>
 	<footer>

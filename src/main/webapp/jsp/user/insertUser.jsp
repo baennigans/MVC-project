@@ -6,13 +6,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+#menu {
+	display: flex;
+	width: 1000px;
+	font-size: 20px;
+	color: #A52A2A;
+	margin: 0 auto;
+	margin-top: 10px;
+}
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 1000px;
-	margin: 100px auto;
+	margin: 0 auto;
+	margin-bottom: 100px;
 	padding: 50px 0;
 	background-color: #d2d2d2;
 	border-radius: 5px;
@@ -78,6 +87,9 @@ alert('<%= msg %>');
 		<jsp:include page="../topMenu.jsp" />
 	</header>
 	<section>
+		<div id="menu">
+			<h1>회원가입</h1>
+		</div>
 		<div class="container">
 		<a href="${ pageContext.request.contextPath }/main.do">
 			<img src="${ pageContext.request.contextPath }/images/logo4.png" alt="로고" class="logo-img">

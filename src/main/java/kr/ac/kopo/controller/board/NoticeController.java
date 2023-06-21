@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.ac.kopo.controller.Controller;
 
-public class BoardController implements Controller {
+public class NoticeController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "/jsp/board/board.jsp";
+		return "/jsp/board/notice.jsp";
 	}
 
 }
