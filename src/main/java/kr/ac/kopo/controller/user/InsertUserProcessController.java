@@ -38,14 +38,23 @@ public class InsertUserProcessController implements Controller{
 		vo.setPhone(phone);
 		vo.setGender(gender);
 		vo.setRole(role);
+		
+		System.out.println(id);
+		System.out.println(password);
+		System.out.println(name);
+		System.out.println(birth);
+		System.out.println(email);
+		System.out.println(phone);
 
 		UserService service = new UserService();
 		service.insertUser(vo);
 
-		if (id == null) {
+		if (id == "" || password == "" || name == "" || birth == "") {
+			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
 			return "jsp/login/insertUser.jsp";
 		} else {
-			return "jsp/login/loginForm.jsp?insert=success";
+			request.setAttribute("msg", "회원가입이 완료되었습니다.");
+			return "jsp/login/loginForm.jsp";
 		}
 	}
 }

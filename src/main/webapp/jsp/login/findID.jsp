@@ -38,14 +38,6 @@ a {
 	text-decoration: none;
 }
 </style>
-<script>
-    <% String msg = (String) request.getAttribute("msg"); %>
-    <% if (msg != null && !msg.isEmpty()) { %>
-        window.onload = function() {
-            alert('<%= msg %>');
-        }
-    <% } %>
-</script>
 </head>
 <body>
 	<header>
