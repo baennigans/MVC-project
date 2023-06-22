@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BGH BANK</title>
 <script>
 function checkForm() {
 	if (confirm("게시글을 수정하시겠습니까?")) {

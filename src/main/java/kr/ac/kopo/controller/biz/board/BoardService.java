@@ -33,5 +33,10 @@ public class BoardService {
 		boardDao.deleteBoard(vo);
 	}
 
+	public List<BoardVO> SearchBoardList(BoardVO vo) {
+		List<BoardVO> boardList = boardDao.SearchBoardList(vo);
+		return boardList;
+	}
+
 
 }

@@ -1,4 +1,4 @@
-package kr.ac.kopo.controller.move;
+package kr.ac.kopo.controller.main;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

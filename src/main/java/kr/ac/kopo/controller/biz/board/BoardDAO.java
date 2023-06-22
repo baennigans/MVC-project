@@ -19,6 +19,7 @@ public class BoardDAO {
 	private static String BOARD_GET = "select * from B_BOARD where board_no=? ";
 	private static String BOARD_UPDATE = "update B_BOARD set board_title=?, board_detail=? where board_no=? ";
 	private static String BOARD_DELETE = "delete B_BOARD where board_no=? ";
+	private static String BOARD_SEARCH = "select * from B_BOARD where board_title like ? or user_id=? ";
 	
 	public void insertBoard(BoardVO vo) {
 		try {
@@ -109,4 +110,28 @@ public class BoardDAO {
 		}
 	}
 
+	public List<BoardVO> SearchBoardList(BoardVO vo) {
+		List<BoardVO> boardList = new ArrayList<BoardVO>();
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_SEARCH);
+			stmt.setString(1, "%"+vo.getTitle()+"%");
+			stmt.setString(2, vo.getId());
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				BoardVO board = new BoardVO();
+				board.setNo(rs.getInt("BOARD_NO"));
+				board.setId(rs.getString("USER_ID"));
+				board.setTitle(rs.getString("BOARD_TITLE"));
+				board.setDetail(rs.getString("BOARD_DETAIL"));
+				board.setDate(rs.getDate("BOARD_DATE"));
+				boardList.add(board);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return boardList;
+	}
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BGH BANK</title>
 <style>
 	.topMenu-bar1 {
         text-align: right;
