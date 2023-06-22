@@ -94,7 +94,7 @@ alert('<%= msg %>');
 		<a href="${ pageContext.request.contextPath }/main.do">
 			<img src="${ pageContext.request.contextPath }/images/logo4.png" alt="로고" class="logo-img">
 		</a>
-			<form action="insertUserProcess.do" method="post">
+			<form action="${ pageContext.request.contextPath }/insertUserProcess.do" method="post">
 				<table>
 				<tr>
 					<td>아이디</td>

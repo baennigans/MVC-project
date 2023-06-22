@@ -1,7 +1,5 @@
 package kr.ac.kopo.controller.board;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,18 +7,22 @@ import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.board.BoardService;
 import kr.ac.kopo.controller.biz.board.BoardVO;
 
-public class BoardListController implements Controller {
+public class DeleteBoardController implements Controller{
+
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+
+		String no = request.getParameter("no");
 		
 		BoardVO vo = new BoardVO();
-		BoardService service = new BoardService();
-		
-		List<BoardVO> boardList = service.getBoardList(vo);
+		vo.setNo(Integer.parseInt(no));
 
-		request.setAttribute("boardList", boardList);
+		BoardService service = new BoardService();
+		service.deleteBoard(vo);
 		
-		return "/jsp/board/boardList.jsp";
+		request.setAttribute("msg", "게시글 삭제가 완료되었습니다.");
+		
+		return "boardList.do";
 	}
 
 }

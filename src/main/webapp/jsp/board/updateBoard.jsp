@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script>
 function checkForm() {
-	if (confirm("정말 삭제하시겠습니까?")) {
+	if (confirm("수정하시겠습니까?")) {
 		return true
 	} else {
 		return false
@@ -21,16 +21,16 @@ function checkForm() {
 		<jsp:include page="../topMenu.jsp" />
 	</header>
 	<section>
-	<form action="${ pageContext.request.contextPath }/updateBoard.do" method="post">
+	<form action="${ pageContext.request.contextPath }/updateBoardProcess.do" method="post" onsubmit="return checkForm()">
 		<input name="no" type="hidden" value="${board.no}" />
 		<table border="1">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title" value="${board.title}" disabled /></td>
+				<td><input type="text" name="title" value="${board.title}" /></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="detail" cols="40" rows="10" disabled >${board.detail}</textarea>
+				<td><textarea name="detail" cols="40" rows="10" >${board.detail}</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -42,20 +42,11 @@ function checkForm() {
 				<td><input type="text" name="date" value="${board.date}" disabled /></td>
 			</tr>
 			<tr>
-			<c:if test="${user.id == board.id || user.role == '1'}">
-				<td colspan="2"><input type="submit" value="수정하기" /></td>
-			</c:if>
+				<td colspan="2"><input type="submit" value="수정완료" /></td>
 			</tr>
 		</table>
-	</form>
-		<br />
-		<c:if test="${user.id == board.id || user.role == '1'}">
-			<form action="${ pageContext.request.contextPath }/deleteBoard.do?no=${board.no}" method="post" onsubmit="return checkForm()">
-				<input type="hidden" name="no" value="${board.no}" />
-				<input type="submit" value="삭제하기" id="deleteBoard" />
-			</form>			
-		</c:if>
 		<a href="${ pageContext.request.contextPath }/boardList.do">목록으로</a>
+	</form>
 	</section>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />

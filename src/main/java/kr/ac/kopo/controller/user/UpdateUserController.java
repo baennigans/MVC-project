@@ -39,13 +39,13 @@ public class UpdateUserController implements Controller{
 
 		if (password == "" || name == "" || email == "" || phone == "") {
 			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
-			return "jsp/user/myPage.jsp";
+			return "/jsp/user/myPage.jsp";
 		} else {
 			service.updateUser(vo);
 			request.setAttribute("msg", "정보수정이 완료되었습니다. 다시 로그인하세요.");
 			HttpSession session = request.getSession();
 			session.invalidate();
-			return "jsp/user/logoutProcess.jsp";
+			return "/jsp/user/logoutProcess.jsp";
 		}
 	}
 }

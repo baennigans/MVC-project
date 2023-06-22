@@ -10,6 +10,6 @@ public class LoginController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-		return "jsp/user/loginForm.jsp";
+		return "/jsp/user/loginForm.jsp";
 	}
 }

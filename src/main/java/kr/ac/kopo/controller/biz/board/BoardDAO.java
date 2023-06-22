@@ -16,7 +16,9 @@ public class BoardDAO {
 
 	private static String BOARD_INSERT = "insert into B_BOARD (board_no, user_id, board_title, board_detail) values (seq_b_board_board_no.nextval, ?, ?, ?) ";
 	private static String BOARD_LIST = "select * from B_BOARD order by board_no desc ";
-	private static String BOARD_GET = "select * from B_BOARD where board_no=?";
+	private static String BOARD_GET = "select * from B_BOARD where board_no=? ";
+	private static String BOARD_UPDATE = "update B_BOARD set board_title=?, board_detail=? where board_no=? ";
+	private static String BOARD_DELETE = "delete B_BOARD where board_no=? ";
 	
 	public void insertBoard(BoardVO vo) {
 		try {
@@ -32,8 +34,6 @@ public class BoardDAO {
 			JDBCUtil.close(stmt, conn);
 		}
 	}
-
-
 
 	public List<BoardVO> getBoardList() {
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
@@ -58,8 +58,6 @@ public class BoardDAO {
 		return boardList;
 	}
 
-
-
 	public BoardVO getBoard(BoardVO vo) {
 		BoardVO board = null;
 		try {
@@ -80,8 +78,35 @@ public class BoardDAO {
 		} finally {
 			JDBCUtil.close(rs, stmt, conn);
 		}
-		//updateBoard(board);
 		return board;
+	}
+
+	public void updateBoard(BoardVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_UPDATE);
+			stmt.setString(1, vo.getTitle());
+			stmt.setString(2, vo.getDetail());
+			stmt.setInt(3, vo.getNo());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+
+	public void deleteBoard(BoardVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_DELETE);
+			stmt.setInt(1, vo.getNo());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
 	}
 
 }

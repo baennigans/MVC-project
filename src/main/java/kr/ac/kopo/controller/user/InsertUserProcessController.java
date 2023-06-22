@@ -43,11 +43,11 @@ public class InsertUserProcessController implements Controller{
 
 		if (id == "" || password == "" || name == "" || birth == "") {
 			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
-			return "jsp/user/insertUser.jsp";
+			return "/jsp/user/insertUser.jsp";
 		} else {
 			service.insertUser(vo);
 			request.setAttribute("msg", "회원가입이 완료되었습니다.");
-			return "jsp/user/loginForm.jsp";
+			return "/jsp/user/loginForm.jsp";
 		}
 	}
 }

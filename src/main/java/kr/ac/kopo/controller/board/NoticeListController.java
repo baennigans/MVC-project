@@ -9,7 +9,7 @@ public class NoticeListController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "jsp/board/noticeList.jsp";
+		return "/jsp/board/noticeList.jsp";
 	}
 
 }

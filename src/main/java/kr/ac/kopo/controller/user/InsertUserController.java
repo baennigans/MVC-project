@@ -10,6 +10,6 @@ public class InsertUserController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-		return "jsp/user/insertUser.jsp";
+		return "/jsp/user/insertUser.jsp";
 	}
 }

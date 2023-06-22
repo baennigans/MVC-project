@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>BGH BANK</title>
 </head>
 <body>
 	<header>

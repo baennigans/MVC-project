@@ -22,7 +22,7 @@ public class DeleteUserController implements Controller{
 		}
 		
 		String id = request.getParameter("id");
-		System.out.println(id);
+		
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		
@@ -33,6 +33,6 @@ public class DeleteUserController implements Controller{
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return "jsp/user/logoutProcess.jsp";
+		return "/jsp/user/logoutProcess.jsp";
 	}
 }

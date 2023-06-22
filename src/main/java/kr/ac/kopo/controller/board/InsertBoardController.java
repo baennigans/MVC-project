@@ -9,6 +9,6 @@ public class InsertBoardController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "jsp/board/insertBoard.jsp";
+		return "/jsp/board/insertBoard.jsp";
 	}
 }

@@ -9,7 +9,7 @@ public class BankIntroduceController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "jsp/bankIntroduce.jsp";
+		return "/jsp/bankIntroduce.jsp";
 	}
 
 }

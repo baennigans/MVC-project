@@ -9,7 +9,7 @@ public class MainController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "jsp/index.jsp";
+		return "/jsp/index.jsp";
 	}
 
 }

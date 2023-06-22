@@ -89,6 +89,16 @@ table td {
 	cursor: pointer;
 }
 </style>
+<%
+String msg = (String) request.getAttribute("msg");
+if (msg != null && !msg.isEmpty()) {
+%>
+<script>
+alert('<%= msg %>');
+</script>
+<%
+}
+%>
 </head>
 <body>
 	<header>
@@ -112,7 +122,7 @@ table td {
 				<c:forEach var="board" items="${boardList}">
 					<tr>
 						<td>${board.no}</td>
-						<td><a href="getBoard.do?no=${board.no}">${board.title}</a></td>
+						<td><a href="${ pageContext.request.contextPath }/getBoard.do?no=${board.no}">${board.title}</a></td>
 						<td>${board.id}</td>
 						<td>${board.date}</td>
 					</tr>

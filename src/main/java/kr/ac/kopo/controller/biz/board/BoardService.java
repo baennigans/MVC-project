@@ -25,4 +25,13 @@ public class BoardService {
 		return board;
 	}
 
+	public void updateBoard(BoardVO vo) {
+		boardDao.updateBoard(vo);		
+	}
+
+	public void deleteBoard(BoardVO vo) {
+		boardDao.deleteBoard(vo);
+	}
+
+
 }
