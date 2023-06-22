@@ -11,21 +11,9 @@
 		<jsp:include page="../topMenu.jsp" />
 	</header>
 	<section>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 		<h1>새글 등록</h1>
 		<hr />
-	<form action="insertBoard.do" method="post">
+	<form action="insertBoardProcess.do" method="post">
 		<table border="1">
 			<tr>
 				<td>제목</td>
@@ -33,11 +21,14 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="writer" /></td>
+				<td>
+					<input type="hidden" name="id" value="${user.id}" />
+					<input type="text" value="${user.id}" disabled />
+				</td>
 			</tr>
 			<tr>
-				<td>글 내용</td>
-				<td><textarea name="content" cols="40" rows="10">
+				<td>내용</td>
+				<td><textarea name="detail" cols="40" rows="10">
 		</textarea></td>
 			</tr>
 			<tr>

@@ -15,6 +15,10 @@
 	margin: 0 auto;
 	margin-top: 10px;
 }
+#insertBoard {
+	display: flex;
+	margin-left: 1020px;
+}
 .container {
 	width:1200px;
 	display: flex;
@@ -93,10 +97,10 @@ table td {
 	<section>
 		<div id="menu">
 			<h1>게시판</h1>
-		</div>
-		<form action="insertBoard.do" method="post" class="form-container">
-				<input type="submit" value="글쓰기">
+		<form action="insertBoard.do" method="post" class="form-container" id="insertBoard">
+			<input type="submit" value="글쓰기">
 		</form>
+		</div>
 		<div class="container">
 			<table class="table-container">
 				<tr>
@@ -108,8 +112,8 @@ table td {
 				<c:forEach var="board" items="${boardList}">
 					<tr>
 						<td>${board.no}</td>
-						<td>${board.id}</td>
 						<td>${board.title}</td>
+						<td>${board.id}</td>
 						<td>${board.date}</td>
 					</tr>
 				</c:forEach>
