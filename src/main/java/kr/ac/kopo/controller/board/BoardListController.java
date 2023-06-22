@@ -22,5 +22,4 @@ public class BoardListController implements Controller {
 		
 		return "/jsp/board/boardList.jsp";
 	}
-
 }

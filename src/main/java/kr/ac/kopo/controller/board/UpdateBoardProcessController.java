@@ -29,9 +29,14 @@ public class UpdateBoardProcessController implements Controller {
 		vo.setDetail(detail);
 
 		BoardService service = new BoardService();
-		service.updateBoard(vo);
 		
-		return "getBoard.do";
+		if (title == "" || detail == "") {
+			request.setAttribute("msg", "제목/내용을 한 글자 이상 입력해주세요.");
+			return "updateBoard.do";
+		} else {
+			service.updateBoard(vo);
+			return "getBoard.do";
+		}
 	}
 
 }

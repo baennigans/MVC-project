@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script>
 function checkForm() {
-	if (confirm("정말 삭제하시겠습니까?")) {
+	if (confirm("게시글을 삭제하시겠습니까?")) {
 		return true
 	} else {
 		return false

@@ -8,13 +8,23 @@
 <title>Insert title here</title>
 <script>
 function checkForm() {
-	if (confirm("수정하시겠습니까?")) {
+	if (confirm("게시글을 수정하시겠습니까?")) {
 		return true
 	} else {
 		return false
 	}
 }
 </script>
+<%
+String msg = (String) request.getAttribute("msg");
+if (msg != null && !msg.isEmpty()) {
+%>
+<script>
+alert('<%= msg %>');
+</script>
+<%
+}
+%>
 </head>
 <body>
 	<header>

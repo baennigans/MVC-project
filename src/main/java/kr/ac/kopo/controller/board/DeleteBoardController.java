@@ -24,5 +24,4 @@ public class DeleteBoardController implements Controller{
 		
 		return "boardList.do";
 	}
-
 }

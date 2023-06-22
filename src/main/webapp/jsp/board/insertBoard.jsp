@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function checkForm() {
+	if (confirm("게시글을 등록하시겠습니까?")) {
+		return true
+	} else {
+		return false
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -13,7 +22,7 @@
 	<section>
 		<h1>새글 등록</h1>
 		<hr />
-	<form action="${ pageContext.request.contextPath }/insertBoardProcess.do" method="post">
+	<form action="${ pageContext.request.contextPath }/insertBoardProcess.do" method="post" onsubmit="return checkForm()">
 		<table border="1">
 			<tr>
 				<td>제목</td>
