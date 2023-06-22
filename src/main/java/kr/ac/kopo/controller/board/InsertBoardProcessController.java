@@ -23,8 +23,6 @@ public class InsertBoardProcessController implements Controller {
 		String title = request.getParameter("title");
 		String detail = request.getParameter("detail");
 		
-		//System.out.println("board : "+id+", "+title+", "+detail);
-		
 		BoardVO vo = new BoardVO();
 		vo.setId(id);
 		vo.setTitle(title);
@@ -33,11 +31,6 @@ public class InsertBoardProcessController implements Controller {
 		BoardService service = new BoardService();
 		service.insertBoard(vo);
 		
-		
-		
-		
-		
-		
-		return "jsp/board/boardList.jsp";
+		return "boardList.do";
 	}
 }

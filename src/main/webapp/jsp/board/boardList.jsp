@@ -97,7 +97,7 @@ table td {
 	<section>
 		<div id="menu">
 			<h1>게시판</h1>
-		<form action="insertBoard.do" method="post" class="form-container" id="insertBoard">
+		<form action="${ pageContext.request.contextPath }/insertBoard.do" method="post" class="form-container" id="insertBoard">
 			<input type="submit" value="글쓰기">
 		</form>
 		</div>
@@ -118,7 +118,7 @@ table td {
 					</tr>
 				</c:forEach>
 			</table>
-			<form action="searchBoard.do" method="post" class="form-container">
+			<form action="${ pageContext.request.contextPath }/searchBoard.do" method="post" class="form-container">
 				<input type="text" name="word" placeholder="검색어를 입력하세요">
 				<input type="submit" value="검색">
 			</form>

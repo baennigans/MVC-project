@@ -15,7 +15,7 @@ public class BoardDAO {
 	private ResultSet rs;
 
 	private static String BOARD_INSERT = "insert into B_BOARD (board_no, user_id, board_title, board_detail) values (seq_b_board_board_no.nextval, ?, ?, ?) ";
-	private static String BOARD_LIST = "select * from B_BOARD ";
+	private static String BOARD_LIST = "select * from B_BOARD order by board_no desc ";
 	
 	
 	public void insertBoard(BoardVO vo) {

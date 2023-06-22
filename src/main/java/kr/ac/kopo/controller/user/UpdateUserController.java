@@ -10,7 +10,7 @@ import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.user.UserService;
 import kr.ac.kopo.controller.biz.user.UserVO;
 
-public class UpdateUserProcessController implements Controller{
+public class UpdateUserController implements Controller{
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -33,6 +33,7 @@ public class UpdateUserProcessController implements Controller{
 		vo.setName(name);
 		vo.setEmail(email);
 		vo.setPhone(phone);
+		
 		
 		UserService service = new UserService();
 

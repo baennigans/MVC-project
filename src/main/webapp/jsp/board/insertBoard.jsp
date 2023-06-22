@@ -13,7 +13,7 @@
 	<section>
 		<h1>새글 등록</h1>
 		<hr />
-	<form action="insertBoardProcess.do" method="post">
+	<form action="${ pageContext.request.contextPath }/insertBoardProcess.do" method="post">
 		<table border="1">
 			<tr>
 				<td>제목</td>
@@ -28,8 +28,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="detail" cols="40" rows="10">
-		</textarea></td>
+				<td><textarea name="detail" cols="40" rows="10"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="등록" /></td>
