@@ -16,7 +16,7 @@ public class BoardDAO {
 
 	private static String BOARD_INSERT = "insert into B_BOARD (board_no, user_id, board_title, board_detail) values (seq_b_board_board_no.nextval, ?, ?, ?) ";
 	private static String BOARD_LIST = "select * from B_BOARD order by board_no desc ";
-	
+	private static String BOARD_GET = "select * from B_BOARD where board_no=?";
 	
 	public void insertBoard(BoardVO vo) {
 		try {
@@ -56,6 +56,32 @@ public class BoardDAO {
 			JDBCUtil.close(rs, stmt, conn);
 		}
 		return boardList;
+	}
+
+
+
+	public BoardVO getBoard(BoardVO vo) {
+		BoardVO board = null;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_GET);
+			stmt.setInt(1, vo.getNo());
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				board = new BoardVO();
+				board.setNo(rs.getInt("BOARD_NO"));
+				board.setId(rs.getString("USER_ID"));
+				board.setTitle(rs.getString("BOARD_TITLE"));
+				board.setDetail(rs.getString("BOARD_DETAIL"));
+				board.setDate(rs.getDate("BOARD_DATE"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		//updateBoard(board);
+		return board;
 	}
 
 }

@@ -112,7 +112,7 @@ table td {
 				<c:forEach var="board" items="${boardList}">
 					<tr>
 						<td>${board.no}</td>
-						<td>${board.title}</td>
+						<td><a href="getBoard.do?no=${board.no}">${board.title}</a></td>
 						<td>${board.id}</td>
 						<td>${board.date}</td>
 					</tr>

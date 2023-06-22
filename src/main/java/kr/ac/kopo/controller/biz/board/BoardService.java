@@ -20,4 +20,9 @@ public class BoardService {
 		return boardList;
 	}
 
+	public BoardVO getBoard(BoardVO vo) {
+		BoardVO board = boardDao.getBoard(vo);
+		return board;
+	}
+
 }
