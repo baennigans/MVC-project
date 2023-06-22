@@ -94,6 +94,9 @@ table td {
 		<div id="menu">
 			<h1>게시판</h1>
 		</div>
+		<form action="insertBoard.do" method="post" class="form-container">
+				<input type="submit" value="글쓰기">
+		</form>
 		<div class="container">
 			<table class="table-container">
 				<tr>
@@ -112,8 +115,8 @@ table td {
 				</c:forEach>
 			</table>
 			<form action="searchBoard.do" method="post" class="form-container">
-			<input type="text" name="word" placeholder="검색어를 입력하세요">
-			<input type="submit" value="검색">
+				<input type="text" name="word" placeholder="검색어를 입력하세요">
+				<input type="submit" value="검색">
 			</form>
 		</div>
 	</section>

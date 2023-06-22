@@ -94,10 +94,10 @@
 			<a href="#">계좌개설</a>
 		</div>
 		<div class="topMenu-item2">
-			<a href="${ pageContext.request.contextPath }/notice.do">공지사항</a>
+			<a href="${ pageContext.request.contextPath }/noticeList.do">공지사항</a>
 		</div>
 		<div class="topMenu-item2">
-			<a href="${ pageContext.request.contextPath }/board.do">게시판</a>
+			<a href="${ pageContext.request.contextPath }/boardList.do">게시판</a>
 		</div>
 	</div>
 	<div class="red-line"></div>
