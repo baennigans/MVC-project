@@ -134,7 +134,72 @@ alert('<%= msg %>');
 			</form>
 		</div>
 	</section>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<div align="center">      
+		<table>
+		<tr>
+			<td valign="middle">
+			<%-- 처음 페이지 설정 --%>
+			<c:choose>
+				<c:when test="${pageNo == 1}" >
+					<img alt="처음으로" src="${ pageContext.request.contextPath }/images/btn_first.gif" align="middle">
+				</c:when>
+				<c:otherwise>
+					<a href="${ pageContext.request.contextPath }/boardPaging.do">
+						<img alt="처음으로" src="${ pageContext.request.contextPath }/images/btn_first.gif" align="middle">
+					</a>
+				</c:otherwise>
+			</c:choose>
+			
+			<%-- 이전 페이지 설정 --%>
+			<c:choose>
+				<c:when test="${beginPage == 1}" >
+					<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
+				</c:when>
+				<c:otherwise>
+					<a href="${ pageContext.request.contextPath }/boardPaging.do">
+						<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
+					</a>
+				</c:otherwise>
+			</c:choose>
+			
+			<%-- 페이지 번호 설정 --%>			
+			<c:forEach var="i" begin="${beginPage}" end="${endPage}">
+				<c:if test="${i eq pageNo}">
+					<strong>[${i}]</strong>
+				</c:if>
+				<c:if test="${i ne pageNo}">
+					<a href="boardPaging.do?pageNo=${i}">[${i}]</a>
+				</c:if>
+			</c:forEach>
+			
+			<%-- 다음 페이지 설정 --%>
+			<c:choose>
+				<c:when test="${endPage == lastPage}" >
+					<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
+				</c:when>
+				<c:otherwise>
+					<a href="/jsp/board/boardList.jsp?pageNo=${endPage + 1}">
+						<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
+					</a>
+				</c:otherwise>
+			</c:choose>
+			
+			<%-- 마지막 페이지 설정 --%>
+			<c:choose>
+				<c:when test="${pageNo == lastPage}" >
+					<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" align="middle">
+				</c:when>
+				<c:otherwise>
+					<a href="/jsp/board/boardList.jsp?pageNo=${lastPage}">
+						<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" align="middle">
+					</a>
+				</c:otherwise>
+			</c:choose>
+			</td>
+		</tr>	
+		</table>
+	</div>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
 	</footer>

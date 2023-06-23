@@ -28,7 +28,7 @@ public class SearchBoardController implements Controller{
 		vo.setId(word);
 		
 		BoardService service = new BoardService();
-		List<BoardVO> boardList = service.SearchBoardList(vo);
+		List<BoardVO> boardList = service.searchBoardList(vo);
 		
 		request.setAttribute("boardList", boardList);	
 		

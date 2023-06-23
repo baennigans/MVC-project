@@ -13,7 +13,7 @@ public class BoardDAO {
 	private Connection conn;
 	private PreparedStatement stmt;
 	private ResultSet rs;
-	private static final int LIST_SIZE = 3;
+	private static final int LIST_SIZE = 10;
 
 	private static String BOARD_INSERT = "insert into B_BOARD (board_no, user_id, board_title, board_detail) values (seq_b_board_board_no.nextval, ?, ?, ?) ";
 	private static String BOARD_LIST = "select * from B_BOARD order by board_no desc ";
@@ -21,11 +21,11 @@ public class BoardDAO {
 	private static String BOARD_UPDATE = "update B_BOARD set board_title=?, board_detail=? where board_no=? ";
 	private static String BOARD_DELETE = "delete B_BOARD where board_no=? ";
 	private static String BOARD_SEARCH = "select * from B_BOARD where board_title like ? or user_id=? ";
-	private static String BOARD_SELECT = "select * from (select rownum rnum, b.* from (select a.* from B_BOARD a order by no desc)b ) where rnum >=? and rnum<= ? ";
+	private static String BOARD_SELECT = "select * from (select rownum rnum, b.* from (select a.* from B_BOARD a order by board_no desc)b ) where rnum >=? and rnum<= ? ";
 	private static String BOARD_COUNT = "select count(*) cnt from b_board";
 	
 	
-	public List<BoardVO> selcetBoard(int pageNo) {
+	public List<BoardVO> selectBoard(int pageNo) {
 		int start = (pageNo -1) * LIST_SIZE + 1;
 		int end   = pageNo      * LIST_SIZE;
 		
@@ -163,7 +163,7 @@ public class BoardDAO {
 		}
 	}
 
-	public List<BoardVO> SearchBoardList(BoardVO vo) {
+	public List<BoardVO> searchBoardList(BoardVO vo) {
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		try {
 			conn = JDBCUtil.getConnection();

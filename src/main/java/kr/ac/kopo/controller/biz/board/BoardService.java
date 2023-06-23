@@ -33,10 +33,19 @@ public class BoardService {
 		boardDao.deleteBoard(vo);
 	}
 
-	public List<BoardVO> SearchBoardList(BoardVO vo) {
-		List<BoardVO> boardList = boardDao.SearchBoardList(vo);
+	public List<BoardVO> searchBoardList(BoardVO vo) {
+		List<BoardVO> boardList = boardDao.searchBoardList(vo);
 		return boardList;
 	}
 
+	public List<BoardVO> selectBoard(int pageNo) {
+		List<BoardVO> boardList = boardDao.selectBoard(pageNo);
+		return boardList;
+	}
 
+	public int selectBoardCount() {
+		int totalCount = boardDao.selectBoardCount();
+		return totalCount;
+	}
+	
 }
