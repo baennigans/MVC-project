@@ -61,6 +61,7 @@ a {
   font-weight: bold;
 }
 </style>
+
 <script>
 	function checkForm() {
 		if (confirm("게시글을 삭제하시겠습니까?")) {
@@ -70,7 +71,9 @@ a {
 		}
 	}
 </script>
+
 </head>
+
 <body>
 	<header>
 		<jsp:include page="../topMenu.jsp" />
@@ -113,6 +116,9 @@ a {
 			</c:if>
 			<a href="${ pageContext.request.contextPath }/boardList.do">목록으로</a>
 		</div>
+		
+		<jsp:include page="/jsp/board/comment.jsp" />
+
 	</section>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
