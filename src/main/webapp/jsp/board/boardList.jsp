@@ -160,12 +160,9 @@ alert('<%= msg %>');
 					<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
 				</c:when>
 				<c:otherwise>
-					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
-						<input type="hidden" name="pageNo" value="${beginPage - 1}">
-						<button type="submit">
-            				<img src="${ pageContext.request.contextPath }/images/btn_pre.gif" alt="Page ${beginPage - 1}">
-        				</button>
-					</form>
+					<a href="${ pageContext.request.contextPath }/boardPaging.do?pageNo=${beginPage - 1}">
+						<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
+					</a>
 				</c:otherwise>
 			</c:choose>
 			
@@ -175,10 +172,7 @@ alert('<%= msg %>');
 					<strong>[${i}]</strong>
 				</c:if>
 				<c:if test="${i ne pageNo}">
-					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
-						<input type="hidden" name="pageNo" value="${i}">
-						<input type="submit" value="[${i}]">
-					</form>
+					<a href="${ pageContext.request.contextPath }/boardPaging.do?pageNo=${i}">[${i}]</a>
 				</c:if>
 			</c:forEach>
 			
@@ -188,12 +182,9 @@ alert('<%= msg %>');
 					<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
 				</c:when>
 				<c:otherwise>
-					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
-						<input type="hidden" name="pageNo" value="${endPage + 1}">
-						<button type="submit">
-            				<img src="${ pageContext.request.contextPath }/images/btn_next.gif" alt="Page ${endPage + 1}">
-        				</button>
-					</form>
+					<a href="${ pageContext.request.contextPath }/boardPaging.do?pageNo=${endPage + 1}">
+						<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
+					</a>
 				</c:otherwise>
 			</c:choose>
 			
@@ -204,13 +195,9 @@ alert('<%= msg %>');
 				</c:when>
 				<c:otherwise>
 				
-					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
-						<input type="hidden" name="pageNo" value="${lastPage}">
-						<button type="submit">
-            				<img src="${ pageContext.request.contextPath }/images/btn_last.gif" alt="Page ${endPage + 1}">
-        				</button>
-					</form>
-
+					<a href="${ pageContext.request.contextPath }/boardPaging.do?pageNo=${lastPage}">
+						<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" align="middle">
+					</a>
 				</c:otherwise>
 			</c:choose>
 			</td>

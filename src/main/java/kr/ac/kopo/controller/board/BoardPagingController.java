@@ -39,12 +39,6 @@ public class BoardPagingController implements Controller {
 		request.setAttribute("beginPage", beginPage);
 		request.setAttribute("endPage"  , endPage);
 		
-		System.out.println("pageNo : "+pageNo);
-		System.out.println("totalCount : "+totalCount);
-		System.out.println("lastPage : "+lastPage);
-		System.out.println("endPage : "+endPage);
-		System.out.println("--------------------------");
-		
 		return "/jsp/board/boardList.jsp";
 	}
 }
