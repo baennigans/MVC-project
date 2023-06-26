@@ -53,6 +53,7 @@ public class BoardDAO {
 		return boardList;
 	}
 	
+	
 	public int selectBoardCount() {
 		int totalCount = 0;
 		try {
@@ -68,10 +69,6 @@ public class BoardDAO {
 		}
 		return totalCount;
 	}	
-	
-	
-	
-	
 	
 	
 	public void insertBoard(BoardVO vo) {

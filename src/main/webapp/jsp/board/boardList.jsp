@@ -88,6 +88,9 @@ table td {
 	border-radius: 4px;
 	cursor: pointer;
 }
+.paging {
+	display: inline-block;
+}
 </style>
 <%
 String msg = (String) request.getAttribute("msg");
@@ -157,9 +160,12 @@ alert('<%= msg %>');
 					<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
 				</c:when>
 				<c:otherwise>
-					<a href="${ pageContext.request.contextPath }/boardPaging.do">
-						<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" align="middle">
-					</a>
+					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
+						<input type="hidden" name="pageNo" value="${beginPage - 1}">
+						<button type="submit">
+            				<img src="${ pageContext.request.contextPath }/images/btn_pre.gif" alt="Page ${beginPage - 1}">
+        				</button>
+					</form>
 				</c:otherwise>
 			</c:choose>
 			
@@ -169,7 +175,10 @@ alert('<%= msg %>');
 					<strong>[${i}]</strong>
 				</c:if>
 				<c:if test="${i ne pageNo}">
-					<a href="boardPaging.do?pageNo=${i}">[${i}]</a>
+					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
+						<input type="hidden" name="pageNo" value="${i}">
+						<input type="submit" value="[${i}]">
+					</form>
 				</c:if>
 			</c:forEach>
 			
@@ -179,9 +188,12 @@ alert('<%= msg %>');
 					<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
 				</c:when>
 				<c:otherwise>
-					<a href="/jsp/board/boardList.jsp?pageNo=${endPage + 1}">
-						<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" align="middle">
-					</a>
+					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
+						<input type="hidden" name="pageNo" value="${endPage + 1}">
+						<button type="submit">
+            				<img src="${ pageContext.request.contextPath }/images/btn_next.gif" alt="Page ${endPage + 1}">
+        				</button>
+					</form>
 				</c:otherwise>
 			</c:choose>
 			
@@ -191,9 +203,14 @@ alert('<%= msg %>');
 					<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" align="middle">
 				</c:when>
 				<c:otherwise>
-					<a href="/jsp/board/boardList.jsp?pageNo=${lastPage}">
-						<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" align="middle">
-					</a>
+				
+					<form action="${ pageContext.request.contextPath }/boardPaging.do" method="post" class="paging">
+						<input type="hidden" name="pageNo" value="${lastPage}">
+						<button type="submit">
+            				<img src="${ pageContext.request.contextPath }/images/btn_last.gif" alt="Page ${endPage + 1}">
+        				</button>
+					</form>
+
 				</c:otherwise>
 			</c:choose>
 			</td>

@@ -19,26 +19,31 @@ public class BoardPagingController implements Controller {
 			pageNo = Integer.parseInt(request.getParameter("pageNo"));
 		} catch(Exception e) {
 		}
-		System.out.println(pageNo);
 		
 		BoardService service = new BoardService();
 		List<BoardVO> boardList = service.selectBoard(pageNo);
 		
 		int totalCount = service.selectBoardCount();
-		int listSize = 1;
+		int listSize = 10;
 		int lastPage = (totalCount % listSize == 0) ? totalCount / listSize  : totalCount / listSize + 1;
 		
 		request.setAttribute("pageNo", pageNo);
 		request.setAttribute("lastPage", lastPage);
 		request.setAttribute("boardList", boardList);
 		
-		int tabSize  = 3;
+		int tabSize  = 5;
 		int currTab   = (pageNo  -1) / tabSize + 1;
 		int beginPage = (currTab -1) * tabSize + 1;
 		int endPage   = (currTab * tabSize < lastPage) ? currTab * tabSize : lastPage;
 		
 		request.setAttribute("beginPage", beginPage);
 		request.setAttribute("endPage"  , endPage);
+		
+		System.out.println("pageNo : "+pageNo);
+		System.out.println("totalCount : "+totalCount);
+		System.out.println("lastPage : "+lastPage);
+		System.out.println("endPage : "+endPage);
+		System.out.println("--------------------------");
 		
 		return "/jsp/board/boardList.jsp";
 	}
