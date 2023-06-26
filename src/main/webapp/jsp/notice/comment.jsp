@@ -19,7 +19,7 @@
 
 		$.ajax({
 			type : 'POST',
-			url : "<c:url value='/board/addComment.do'/>",
+			url : "<c:url value='/notice/addComment.do'/>",
 			data : $("#commentForm").serialize(),
 			success : function(data) {
 				if (data == "success") {
@@ -46,7 +46,7 @@
 	function getCommentList() {
 		$.ajax({
 					type : 'GET',
-					url : "<c:url value='/board/commentList.do'/>",
+					url : "<c:url value='/notice/commentList.do'/>",
 					dataType : "json",
 					data : $("#commentForm").serialize(),
 					contentType : "application/x-www-form-urlencoded; charset=UTF-8",

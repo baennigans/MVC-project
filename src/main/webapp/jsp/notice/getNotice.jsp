@@ -24,7 +24,7 @@
 	padding: 20px;
 	margin-top: 40px;
 }
-.getboard {
+.getnotice {
 	text-align: center;
 	width: 900px;
 	margin: 0 auto;
@@ -43,7 +43,7 @@ input[type="text"], textarea {
 	border-radius: 4px;
 	box-sizing: border-box;
 }
-#updateBoard {
+#updateNotice {
 	width: 300px;
 	margin: 30px auto;
 	padding: 8px 16px;
@@ -52,7 +52,7 @@ input[type="text"], textarea {
 	border-radius: 4px;
 	background-color: #4CAF50;
 }
-#deleteBoard {
+#deleteNotice {
 	width: 300px;
 	padding: 8px 16px;
 	color: white;
@@ -87,42 +87,42 @@ input[type="text"], textarea {
 			<a href="${ pageContext.request.contextPath }/main.do">
 				<img src="${ pageContext.request.contextPath }/images/logo3.png" alt="Bank 로고" class="logo-img">
 			</a>
-			<form action="${ pageContext.request.contextPath }/updateBoard.do" method="post">
-				<input name="no" type="hidden" value="${board.no}" />
-				<table border="1" class="getboard">
+			<form action="${ pageContext.request.contextPath }/updateNotice.do" method="post">
+				<input name="no" type="hidden" value="${notice.no}" />
+				<table border="1" class="getnotice">
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="title" value="${board.title}" disabled /></td>
+						<td><input type="text" name="title" value="${notice.title}" disabled /></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="detail" cols="40" rows="10" disabled>${board.detail}</textarea></td>
+						<td><textarea name="detail" cols="40" rows="10" disabled>${notice.detail}</textarea></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td><input type="text" name="id" value="${board.id}" disabled /></td>
+						<td><input type="text" name="id" value="${notice.id}" disabled /></td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
-						<td><input type="text" name="date" value="${board.date}" disabled /></td>
+						<td><input type="text" name="date" value="${notice.date}" disabled /></td>
 					</tr>
 					<tr>
-						<c:if test="${user.id == board.id || user.role == '1'}">
-							<td colspan="2"><input type="submit" value="수정하기" id="updateBoard" /></td>
+						<c:if test="${user.id == notice.id || user.role == '1'}">
+							<td colspan="2"><input type="submit" value="수정하기" id="updateNotice" /></td>
 						</c:if>
 					</tr>
 				</table>
 			</form>
 			<br />
-			<c:if test="${user.id == board.id || user.role == '1'}">
-				<form action="${ pageContext.request.contextPath }/deleteBoard.do?no=${board.no}" method="post" onsubmit="return checkForm()">
-					<input type="hidden" name="no" value="${board.no}" />
-					<input type="submit" value="삭제하기" id="deleteBoard" />
+			<c:if test="${user.id == notice.id || user.role == '1'}">
+				<form action="${ pageContext.request.contextPath }/deleteNotice.do?no=${notice.no}" method="post" onsubmit="return checkForm()">
+					<input type="hidden" name="no" value="${notice.no}" />
+					<input type="submit" value="삭제하기" id="deleteNotice" />
 				</form>
 			</c:if>
-			<a href="${ pageContext.request.contextPath }/boardPaging.do" id="getlist">목록으로</a>
+			<a href="${ pageContext.request.contextPath }/noticePaging.do" id="getlist">목록으로</a>
 		</div>
-		<jsp:include page="/jsp/board/comment.jsp" />
+		<jsp:include page="/jsp/notice/comment.jsp" />
 	</section>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />

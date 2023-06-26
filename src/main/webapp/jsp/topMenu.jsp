@@ -102,7 +102,7 @@
 		</c:otherwise>
 		</c:choose>
 		<div class="topMenu-item2">
-			<a href="${ pageContext.request.contextPath }/noticeList.do">공지사항</a>
+			<a href="${ pageContext.request.contextPath }/noticePaging.do">공지사항</a>
 		</div>
 		<div class="topMenu-item2">
 			<a href="${ pageContext.request.contextPath }/boardPaging.do">게시판</a>
