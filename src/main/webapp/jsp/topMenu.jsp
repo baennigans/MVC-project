@@ -34,16 +34,33 @@
         padding: 10px;
     }
 	.topMenu-item2 a {
-		color: #B90000;
+		color: #00008C;
 		font-size: 20px;
 		text-decoration: none;
 		font-weight: bold;
 	}
 	.topMenu-item2 a:hover {
+		color: #0078FF;
+	}
+    .topMenu-item3 {
+        display: inline-block;
+        padding: 10px;
+    }
+	.topMenu-item3 a {
+		color: #B90000;
+		font-size: 20px;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.topMenu-item3 a:hover {
 		color: #EB0000;
 	}
 	.red-line {
 		border-bottom: 3px solid #EB0000;
+		margin-top: 25px;
+	}
+	.blue-line {
+		border-bottom: 3px solid #00008C;
 		margin-top: 25px;
 	}
 </style>
@@ -83,31 +100,44 @@
 				<a href="#">상품관리</a>
 			</div>
 			<div class="topMenu-item2">
-				<a href="#">회원관리</a>
+				<a href="${ pageContext.request.contextPath }/userList.do">회원관리</a>
+			</div>
+			<div class="topMenu-item2">
+				<a href="${ pageContext.request.contextPath }/noticePaging.do">공지사항</a>
+			</div>
+			<div class="topMenu-item2">
+				<a href="${ pageContext.request.contextPath }/boardPaging.do">게시판</a>
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="topMenu-item2">
+			<div class="topMenu-item3">
 				<a href="#">계좌조회</a>
 			</div>
-			<div class="topMenu-item2">
+			<div class="topMenu-item3">
 				<a href="#">계좌이체</a>
 			</div>
-			<div class="topMenu-item2">
+			<div class="topMenu-item3">
 				<a href="#">계좌개설</a>
 			</div>
-			<div class="topMenu-item2">
+			<div class="topMenu-item3">
 				<a href="#">계좌해지</a>
+			</div>
+			<div class="topMenu-item3">
+				<a href="${ pageContext.request.contextPath }/noticePaging.do">공지사항</a>
+			</div>
+			<div class="topMenu-item3">
+				<a href="${ pageContext.request.contextPath }/boardPaging.do">게시판</a>
 			</div>
 		</c:otherwise>
 		</c:choose>
-		<div class="topMenu-item2">
-			<a href="${ pageContext.request.contextPath }/noticePaging.do">공지사항</a>
-		</div>
-		<div class="topMenu-item2">
-			<a href="${ pageContext.request.contextPath }/boardPaging.do">게시판</a>
-		</div>
 	</div>
-	<div class="red-line"></div>
+	<c:choose>
+	<c:when test="${ user.role == '1' }">
+		<div class="blue-line"></div>
+	</c:when>
+	<c:otherwise>
+		<div class="red-line"></div>
+	</c:otherwise>
+	</c:choose>
 </body>
 </html>

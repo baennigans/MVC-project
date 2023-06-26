@@ -17,7 +17,7 @@
 }
 #insertNotice {
 	display: flex;
-	margin-left: 1020px;
+	margin-left: 936px;
 }
 .container {
 	width:1200px;
@@ -32,14 +32,17 @@
 	width: 100%;
 	border-collapse: collapse;
 }
+#admin1 th, #admin2, #admin3 {
+    background-color: #00008C;
+}
 .table-container th {
 	font-size: 14px;
 	font-weight: bold;
 	padding: 18px;
 	border: 1px solid #ccc;
 	text-align: center;
+    background-color: #CD0000;
 	color: #fff;
-	background-color: #CD0000;
 }
 .table-container td {
 	font-size: 14px;
@@ -81,7 +84,7 @@ table th:nth-child(4) {
 	font-weight: bold;
 	text-decoration: none;
 	color: #fff;
-	background-color: #CD0000;
+	background-color: #CD0000;;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -113,15 +116,18 @@ alert('<%= msg %>');
 	</header>
 	<section>
 		<div id="menu">
-			<h1>게시판</h1>
-		<form action="${ pageContext.request.contextPath }/insertNotice.do" method="post" class="form-container" id="insertNotice">
-			<input type="submit" value="글쓰기">
-		</form>
+			<h1>공지사항</h1>
+			
+			<c:if test="${ user.role == '1' }">
+				<form action="${ pageContext.request.contextPath }/insertNotice.do" method="post" class="form-container" id="insertNotice">
+				<input type="submit" value="공지사항 쓰기" id="admin2">
+				</form>
+			</c:if>
 		</div>
 		<div class="container">
-			<table class="table-container">
+			<table class="table-container" id="${user.role == '1' ? 'admin1' : 'user1'}">
 				<tr>
-					<th>글번호</th>
+					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일자</th>
@@ -204,7 +210,7 @@ alert('<%= msg %>');
 	</div>
 	<form action="${ pageContext.request.contextPath }/searchNotice.do" method="post" class="form-container">
 				<input type="text" name="word" placeholder="검색어를 입력하세요">
-				<input type="submit" value="검색">
+				<input type="submit" value="검색" id="${user.role == '1' ? 'admin3' : 'user3'}">
 	</form>
 	</section>
 	<footer>

@@ -12,6 +12,7 @@ public class GetNoticeController implements Controller {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
 		String no = request.getParameter("no");
+		System.out.println("no: "+no);
 		
 		NoticeVO vo = new NoticeVO();
 		vo.setNo(Integer.parseInt(no));

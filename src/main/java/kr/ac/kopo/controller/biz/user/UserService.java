@@ -1,5 +1,7 @@
 package kr.ac.kopo.controller.biz.user;
 
+import java.util.List;
+
 public class UserService {
 
 	private UserDAO userDao;
@@ -34,5 +36,11 @@ public class UserService {
 	public void deleteUser(UserVO vo) {
 		userDao.deleteUser(vo);
 	}
+
+	public List<UserVO> getUserList(UserVO vo) {
+		List<UserVO> userList = userDao.getUserList();
+		return userList;
+	}
+
 
 }

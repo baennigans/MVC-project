@@ -17,7 +17,7 @@
 }
 #insertBoard {
 	display: flex;
-	margin-left: 1020px;
+	margin-left: 982px;
 }
 .container {
 	width:1200px;
@@ -31,6 +31,9 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
+}
+#admin1 th, #admin2, #admin3 {
+    background-color: #00008C;
 }
 .table-container th {
 	font-size: 14px;
@@ -115,11 +118,11 @@ alert('<%= msg %>');
 		<div id="menu">
 			<h1>게시판</h1>
 		<form action="${ pageContext.request.contextPath }/insertBoard.do" method="post" class="form-container" id="insertBoard">
-			<input type="submit" value="글쓰기">
+			<input type="submit" value="게시글 쓰기" id="${user.role == '1' ? 'admin2' : 'user2'}">
 		</form>
 		</div>
 		<div class="container">
-			<table class="table-container">
+			<table class="table-container" id="${user.role == '1' ? 'admin1' : 'user1'}">
 				<tr>
 					<th>글번호</th>
 					<th>제목</th>
@@ -204,7 +207,7 @@ alert('<%= msg %>');
 	</div>
 	<form action="${ pageContext.request.contextPath }/searchBoard.do" method="post" class="form-container">
 				<input type="text" name="word" placeholder="검색어를 입력하세요">
-				<input type="submit" value="검색">
+				<input type="submit" value="검색" id="${user.role == '1' ? 'admin3' : 'user3'}">
 	</form>
 	</section>
 	<footer>
