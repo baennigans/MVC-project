@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.user.UserService;
 import kr.ac.kopo.controller.biz.user.UserVO;
+import kr.ac.kopo.controller.biz.userList.UserListDAO;
+import kr.ac.kopo.controller.biz.userList.UserListVO;
 
 public class DeleteUserController implements Controller{
 	
@@ -25,10 +27,14 @@ public class DeleteUserController implements Controller{
 		
 		UserVO vo = new UserVO();
 		vo.setId(id);
-		
 		UserService service = new UserService();
-
 		service.deleteUser(vo);
+		
+		UserListVO listvo = new UserListVO();
+		listvo.setId(id);
+		UserListDAO dao = new UserListDAO();
+		dao.deletUser(listvo);
+		
 		request.setAttribute("msg", "회원탈퇴가 완료되었습니다.");
 		HttpSession session = request.getSession();
 		session.invalidate();

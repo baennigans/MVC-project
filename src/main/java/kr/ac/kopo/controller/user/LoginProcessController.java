@@ -22,6 +22,7 @@ public class LoginProcessController implements Controller {
 		UserService service = new UserService();
 		vo = service.getUser(vo);
 		
+		
 		if (service.getUser(vo) != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", vo);

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.user.UserService;
 import kr.ac.kopo.controller.biz.user.UserVO;
+import kr.ac.kopo.controller.biz.userList.UserListDAO;
+import kr.ac.kopo.controller.biz.userList.UserListVO;
 
 public class InsertUserProcessController implements Controller{
 	
@@ -40,7 +42,13 @@ public class InsertUserProcessController implements Controller{
 		vo.setRole(role);
 
 		UserService service = new UserService();
-
+		
+		
+		UserListVO listvo = new UserListVO();
+		listvo.setId(id);
+		UserListDAO dao = new UserListDAO();
+		dao.insertUser(listvo);
+		
 		if (id == "" || password == "" || name == "" || birth == "") {
 			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
 			return "/jsp/user/insertUser.jsp";

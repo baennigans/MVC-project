@@ -123,6 +123,9 @@
 				<a href="#">계좌해지</a>
 			</div>
 			<div class="topMenu-item3">
+				<a href="${ pageContext.request.contextPath }/agree.do">약관동의</a>
+			</div>
+			<div class="topMenu-item3">
 				<a href="${ pageContext.request.contextPath }/noticePaging.do">공지사항</a>
 			</div>
 			<div class="topMenu-item3">

@@ -25,7 +25,7 @@
 	flex-direction: column;
 	background-color: rgba(255, 255, 255, 0.8);
 	padding-bottom: 20px;
-	margin: 0 auto;
+	margin: 37px auto;
 }
 .table-container {
 	table-layout: fixed;
