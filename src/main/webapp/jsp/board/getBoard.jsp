@@ -8,60 +8,65 @@
 <title>BGH BANK</title>
 <style>
 .container {
-  width: 70%;
-  margin: 100px auto;
-  background-color: gray;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 1000px;
+	margin: 50px auto;
+	padding: 100px auto;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
-
-/* 테이블 스타일링 */
-table {
-  width: 80%;
-  background-color:white;
-  border-collapse: collapse;
-  border: 1px solid #ccc; /* 테두리 추가 */
+.logo-img{
+	width: 130px;
+	padding: 20px;
+	margin-top: 40px;
 }
-
-table td {
-  padding: 10px;
-  border: 1px solid #ccc; /* 테두리 추가 */
+.getboard {
+	text-align: center;
+	width: 900px;
+	margin: 0 auto;
+	margin-top: 30px;
+	padding: 100px auto;
+	background-color: #fff;
+	border-collapse: collapse;
+	border: none;
 }
-
-/* 입력 필드 스타일링 */
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+input[type="text"], textarea {
+	width: 100%;
+	font-size: 16px;
+    font-weight: bold;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
-
-/* 수정 버튼 스타일링 */
-input[type="submit"] {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
+#updateBoard {
+	width: 300px;
+	margin: 30px auto;
+	padding: 8px 16px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	background-color: #4CAF50;
 }
-
-/* 삭제 버튼 스타일링 */
 #deleteBoard {
-  background-color: #f44336;
+	width: 300px;
+	padding: 8px 16px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	background-color: #f44336;
 }
-
-/* 링크 스타일링 */
-a {
-  text-decoration: none;
-  color: #0000EE;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+#getlist {
+	margin: 30px auto;
+	
+	color: #B90000;
+	text-decoration: none;
 }
 </style>
-
 <script>
 	function checkForm() {
 		if (confirm("게시글을 삭제하시겠습니까?")) {
@@ -71,7 +76,6 @@ a {
 		}
 	}
 </script>
-
 </head>
 
 <body>
@@ -80,10 +84,12 @@ a {
 	</header>
 	<section>
 		<div class="container">
-			<form action="${ pageContext.request.contextPath }/updateBoard.do"
-				method="post">
+			<a href="${ pageContext.request.contextPath }/main.do">
+				<img src="${ pageContext.request.contextPath }/images/logo3.png" alt="Bank 로고" class="logo-img">
+			</a>
+			<form action="${ pageContext.request.contextPath }/updateBoard.do" method="post">
 				<input name="no" type="hidden" value="${board.no}" />
-				<table border="1">
+				<table border="1" class="getboard">
 					<tr>
 						<td>제목</td>
 						<td><input type="text" name="title" value="${board.title}" disabled /></td>
@@ -102,7 +108,7 @@ a {
 					</tr>
 					<tr>
 						<c:if test="${user.id == board.id || user.role == '1'}">
-							<td colspan="2"><input type="submit" value="수정하기" /></td>
+							<td colspan="2"><input type="submit" value="수정하기" id="updateBoard" /></td>
 						</c:if>
 					</tr>
 				</table>
@@ -114,11 +120,15 @@ a {
 					<input type="submit" value="삭제하기" id="deleteBoard" />
 				</form>
 			</c:if>
-			<a href="${ pageContext.request.contextPath }/boardList.do">목록으로</a>
+			<a href="${ pageContext.request.contextPath }/boardPaging.do" id="getlist">목록으로</a>
 		</div>
 		
+		
+		
 		<jsp:include page="/jsp/board/comment.jsp" />
-
+		
+		
+		
 	</section>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />

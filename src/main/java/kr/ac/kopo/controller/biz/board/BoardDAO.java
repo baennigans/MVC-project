@@ -13,7 +13,7 @@ public class BoardDAO {
 	private Connection conn;
 	private PreparedStatement stmt;
 	private ResultSet rs;
-	private static final int LIST_SIZE = 10;
+	private static final int LIST_SIZE = 15;
 
 	private static String BOARD_INSERT = "insert into B_BOARD (board_no, user_id, board_title, board_detail) values (seq_b_board_board_no.nextval, ?, ?, ?) ";
 	private static String BOARD_LIST = "select * from B_BOARD order by board_no desc ";

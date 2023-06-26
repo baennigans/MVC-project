@@ -33,6 +33,6 @@ public class InsertBoardProcessController implements Controller {
 		
 		request.setAttribute("msg", "게시글 등록이 완료되었습니다.");
 		
-		return "boardList.do";
+		return "boardPaging.do";
 	}
 }

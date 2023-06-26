@@ -24,7 +24,7 @@ public class BoardPagingController implements Controller {
 		List<BoardVO> boardList = service.selectBoard(pageNo);
 		
 		int totalCount = service.selectBoardCount();
-		int listSize = 10;
+		int listSize = 15;
 		int lastPage = (totalCount % listSize == 0) ? totalCount / listSize  : totalCount / listSize + 1;
 		
 		request.setAttribute("pageNo", pageNo);

@@ -22,6 +22,6 @@ public class DeleteBoardController implements Controller{
 		
 		request.setAttribute("msg", "게시글 삭제가 완료되었습니다.");
 		
-		return "boardList.do";
+		return "boardPaging.do";
 	}
 }
