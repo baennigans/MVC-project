@@ -31,6 +31,17 @@ public class InsertUserProcessController implements Controller{
 		String gender = request.getParameter("gender");
 		String role = request.getParameter("role");
 		
+		UserListVO listvo = new UserListVO();
+		listvo.setId(id);
+		UserListDAO dao = new UserListDAO();
+		listvo = dao.getUser(listvo);
+		
+		if (dao.getUser(listvo) != null) {
+			request.setAttribute("msg", "이미 존재하는 아이디입니다.");
+			return "/jsp/user/insertUser.jsp";
+		}
+		
+		
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setPassword(password);
@@ -40,20 +51,15 @@ public class InsertUserProcessController implements Controller{
 		vo.setPhone(phone);
 		vo.setGender(gender);
 		vo.setRole(role);
-
 		UserService service = new UserService();
 		
-		
-		UserListVO listvo = new UserListVO();
-		listvo.setId(id);
-		UserListDAO dao = new UserListDAO();
-		dao.insertUser(listvo);
 		
 		if (id == "" || password == "" || name == "" || birth == "") {
 			request.setAttribute("msg", "회원정보를 정확히 입력해주세요.");
 			return "/jsp/user/insertUser.jsp";
 		} else {
 			service.insertUser(vo);
+			dao.insertUser(listvo);
 			request.setAttribute("msg", "회원가입이 완료되었습니다.");
 			return "/jsp/user/loginForm.jsp";
 		}
