@@ -25,7 +25,7 @@
 	flex-direction: column;
 	background-color: rgba(255, 255, 255, 0.8);
 	padding-bottom: 20px;
-	margin: 37px auto;
+	margin: 0 auto;
 }
 .table-container {
 	table-layout: fixed;
@@ -154,7 +154,7 @@ alert('<%= msg %>');
 				</c:when>
 				<c:otherwise>
 					<a href="${ pageContext.request.contextPath }/noticePaging.do">
-						<img alt="처음으로" src="${ pageContext.request.contextPath }/images/btn_first.gif" class="buttun">
+						<img alt="처음으로" src="${ pageContext.request.contextPath }/images/btn_first.gif" class="buttun"> 
 					</a>
 				</c:otherwise>
 			</c:choose>
@@ -166,7 +166,7 @@ alert('<%= msg %>');
 				</c:when>
 				<c:otherwise>
 					<a href="${ pageContext.request.contextPath }/noticePaging.do?pageNo=${beginPage - 1}">
-						<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" class="buttun">
+						<img alt="이전" src="${ pageContext.request.contextPath }/images/btn_pre.gif" class="buttun"> 
 					</a>
 				</c:otherwise>
 			</c:choose>
@@ -187,7 +187,7 @@ alert('<%= msg %>');
 					<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" class="buttun">
 				</c:when>
 				<c:otherwise>
-					<a href="${ pageContext.request.contextPath }/noticePaging.do?pageNo=${endPage + 1}">
+					<a href="${ pageContext.request.contextPath }/noticePaging.do?pageNo=${endPage + 1}"> 
 						<img alt="다음" src="${ pageContext.request.contextPath }/images/btn_next.gif" class="buttun">
 					</a>
 				</c:otherwise>
@@ -199,7 +199,7 @@ alert('<%= msg %>');
 					<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" class="buttun">
 				</c:when>
 				<c:otherwise>
-					<a href="${ pageContext.request.contextPath }/noticePaging.do?pageNo=${lastPage}">
+					<a href="${ pageContext.request.contextPath }/noticePaging.do?pageNo=${lastPage}"> 
 						<img alt="마지막" src="${ pageContext.request.contextPath }/images/btn_last.gif" class="buttun">
 					</a>
 				</c:otherwise>

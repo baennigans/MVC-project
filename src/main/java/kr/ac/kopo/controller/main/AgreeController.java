@@ -9,7 +9,7 @@ public class AgreeController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "/jsp/Agree.jsp";
+		return "/jsp/agree.jsp";
 	}
 
 }

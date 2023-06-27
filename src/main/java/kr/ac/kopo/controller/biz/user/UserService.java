@@ -42,5 +42,9 @@ public class UserService {
 		return userList;
 	}
 
+	public void agreeUser(UserVO vo) {
+		userDao.agreeUser(vo);
+	}
+
 
 }

@@ -22,7 +22,7 @@ public class UserDAO {
 	private static String USER_UPDATE = "update B_USER set user_pw=?, user_email=?, user_name=?, user_phone=? where user_id=? ";
 	private static String USER_DELETE = "delete B_USER where user_id=? ";
 	private static String USER_LIST = "select * from B_USER where role='0' ";
-	
+	private static String AGREE_USER = "update B_USER set user_agree='1' where user_id=? ";
 	
 	
 	public void insertUser(UserVO vo) {
@@ -191,5 +191,20 @@ public class UserDAO {
 		}
 		return userList;
 	}
+
+
+	public void agreeUser(UserVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(AGREE_USER);
+			stmt.setString(1, vo.getId());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+
 
 }
