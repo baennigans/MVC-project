@@ -131,7 +131,7 @@ table th:nth-child(9) {
 						</c:choose>
 						</td>
 						<td>
-							<a href="${ pageContext.request.contextPath }/deleteUser.do?id=${user.id}" onclick="return checkForm()">삭제</a>
+							<a href="${ pageContext.request.contextPath }/deleteUserList.do?id=${user.id}" onclick="return checkForm()">삭제</a>
 						</td>
 					</tr>
 				</c:forEach>

@@ -31,11 +31,20 @@ table td {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
-#updateUser {
+#updateUser1 {
 	width: 100%;
 	padding: 15px;
 	margin-top: 50px;
-	background-color: #B90000;
+	background-color: #00008C;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+}
+#updateUser2 {
+	width: 100%;
+	padding: 15px;
+	margin-top: 50px;
+	background-color: #CD0000;
 	color: #fff;
 	border: none;
 	border-radius: 3px;
@@ -149,7 +158,14 @@ alert('<%= msg %>');
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="정보수정하기" id="updateUser" />
+					<c:choose>
+					<c:when test="${ user.role == '1' }">
+						<td colspan="2"><input type="submit" value="정보수정하기" id="updateUser1" />
+					</c:when>
+					<c:otherwise>
+						<td colspan="2"><input type="submit" value="정보수정하기" id="updateUser2" />
+					</c:otherwise>
+					</c:choose>
 				</tr>
 				</table>
 			</form>

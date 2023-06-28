@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>BGH BANK</title>
 <style>
+#menu {
+	display: flex;
+	width: 1200px;
+	font-size: 20px;
+	color: #A52A2A;
+	margin: 0 auto;
+	margin-top: -90px;
+}
 .container {
 	display: flex;
 	flex-direction: column;
@@ -13,7 +23,7 @@
 	align-items: center;
 	width: 1000px;
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 100px;
 	margin-bottom: 100px;
 	padding: 100px auto;
 	background-color: #fff;
@@ -44,7 +54,16 @@ input[type="text"], textarea {
 	border-radius: 4px;
 	box-sizing: border-box;
 }
-#insertNotice {
+#insertNotice1 {
+	width: 300px;
+	margin: 30px auto;
+	padding: 8px 16px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	background-color: #00008C;
+}
+#insertNotice2 {
 	width: 300px;
 	margin: 30px auto;
 	padding: 8px 16px;
@@ -75,6 +94,9 @@ input[type="text"], textarea {
 	</header>
 	<section>
 		<div class="container">
+		<div id="menu">
+			<h1>공지사항 등록</h1>
+		</div>
 			<a href="${ pageContext.request.contextPath }/main.do">
 				<img src="${ pageContext.request.contextPath }/images/logo3.png" alt="Bank 로고" class="logo-img">
 			</a>
@@ -94,7 +116,14 @@ input[type="text"], textarea {
 						<td><textarea name="detail" cols="40" rows="10"></textarea></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" value="등록" id="insertNotice" /></td>
+						<c:choose>
+						<c:when test="${ user.role == '1' }">
+							<td colspan="2"><input type="submit" value="등록" id="insertNotice1" /></td>
+						</c:when>
+						<c:otherwise>
+							<td colspan="2"><input type="submit" value="등록" id="insertNotice2" /></td>
+						</c:otherwise>
+						</c:choose>
 					</tr>
 				</table>
 			</form>
