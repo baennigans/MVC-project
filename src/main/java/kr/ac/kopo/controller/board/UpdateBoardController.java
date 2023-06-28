@@ -17,7 +17,6 @@ public class UpdateBoardController implements Controller {
 		vo.setNo(Integer.parseInt(no));
 
 		BoardService service = new BoardService();
-		
 		BoardVO board = service.getBoard(vo);
 
 		request.setAttribute("board", board);

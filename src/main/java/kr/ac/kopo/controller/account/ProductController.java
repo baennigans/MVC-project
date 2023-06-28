@@ -20,7 +20,7 @@ public class ProductController implements Controller {
 		
 		request.setAttribute("productList", productList);
 		
-		return "/jsp/account/Product.jsp";
+		return "/jsp/account/product.jsp";
 	}
 
 }
