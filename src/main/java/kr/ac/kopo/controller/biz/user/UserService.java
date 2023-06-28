@@ -45,6 +45,4 @@ public class UserService {
 	public void agreeUser(UserVO vo) {
 		userDao.agreeUser(vo);
 	}
-
-
 }
