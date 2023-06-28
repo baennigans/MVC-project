@@ -27,6 +27,7 @@
 	padding-bottom: 20px;
 	margin: 0 auto;
 	margin-bottom: 100px;
+	margin-top: 38px;
 }
 .table-container {
 	table-layout: fixed;

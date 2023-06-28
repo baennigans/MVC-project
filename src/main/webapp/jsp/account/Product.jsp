@@ -17,7 +17,7 @@
 }
 #insertProduct {
 	display: flex;
-	margin-left: 936px;
+	margin-left: 969px;
 }
 #admin {
 	background-color: #00008C;
@@ -26,7 +26,6 @@
 	width:1200px;
 	display: flex;
 	flex-direction: column;
-	background-color: rgba(255, 255, 255, 0.8);
 	padding-bottom: 20px;
 	margin: 0 auto;
 	margin-bottom: 100px;
@@ -57,28 +56,16 @@ table th:nth-child(1) {
 	width: 10%;
 }
 table th:nth-child(2) {
-	width: 10%;
+	width: 50%;
 }
 table th:nth-child(3) {
-	width: 16%;
+	width: 20%;
 }
 table th:nth-child(4) {
 	width: 10%;
 }
 table th:nth-child(5) {
-	width: 15%;
-}
-table th:nth-child(6) {
-	width: 15%;
-}
-table th:nth-child(7) {
-	width: 8%;
-}
-table th:nth-child(8) {
-	width: 8%;
-}
-table th:nth-child(9) {
-	width: 8%;
+	width: 10%;
 }
 .form-container {
 	display: flex;
@@ -100,7 +87,6 @@ table th:nth-child(9) {
 	font-weight: bold;
 	text-decoration: none;
 	color: #fff;
-	background-color: #CD0000;;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -108,7 +94,7 @@ table th:nth-child(9) {
 </style>
 <script>
 	function checkForm() {
-		if (confirm("정말 삭제하시겠습니까?")) {
+		if (confirm("정말 변경하시겠습니까?")) {
 			return true
 		} else {
 			return false
@@ -123,45 +109,32 @@ table th:nth-child(9) {
 	<section>
 		<div id="menu">
 			<h1>상품관리</h1>
-		</div>
-		<form action="${ pageContext.request.contextPath }/insertProduct.do" method="post" class="form-container" id="insertProduct">
+			<form action="${ pageContext.request.contextPath }/insertProduct.do" method="post" class="form-container" id="insertProduct">
 				<input type="submit" value="상품 등록" id="admin">
-		</form>
+			</form>
+		</div>
 		<div class="container">
 			<table class="table-container">
 				<tr>
-					<th>아이디</th>
-					<th>비밀번호</th>
-					<th>이메일</th>
-					<th>이름</th>
-					<th>연락처</th>
-					<th>생년월일</th>
-					<th>성별</th>
-					<th>약관동의</th>
-					<th>삭제</th>
+					<th>상품번호</th>
+					<th>상품명</th>
+					<th>이자율</th>
+					<th>가입가능여부</th>
+					<th>변경</th>
 				</tr>
-				<c:forEach var="user" items="${userList}">
+				<c:forEach var="product" items="${productList}">
 					<tr>
-						<td>${user.id}</td>
-						<td>${user.password}</td>
-						<td>${user.email}</td>
-						<td>${user.name}</td>
-						<td>${user.phone}</td>
-						<td>${user.birth}</td>
+						<td>${product.no}</td>
+						<td>${product.name}</td>
+						<td>${product.interest} %</td>
 						<td>
 						<c:choose>
-							<c:when test="${ user.gender == '0' }">여자</c:when>
-						<c:otherwise>남자</c:otherwise>
-						</c:choose>
-						</td>
-						<td>
-						<c:choose>
-							<c:when test="${ user.agree == '0' }">X</c:when>
+							<c:when test="${ product.possible == '0' }">X</c:when>
 						<c:otherwise>O</c:otherwise>
 						</c:choose>
 						</td>
 						<td>
-							<a href="${ pageContext.request.contextPath }/deleteUser.do?id=${user.id}" onclick="return checkForm()">삭제</a>
+							<a href="${ pageContext.request.contextPath }/productPossible.do?no=${product.no}&possible=${product.possible}" onclick="return checkForm()">가능여부변경</a>
 						</td>
 					</tr>
 				</c:forEach>

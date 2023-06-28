@@ -77,7 +77,7 @@
 					<td>
 					
 						<h1 align="left" class="agree-name"><span>전자금융거래 기본약관</span></h1> 
-						<textarea rows="20" cols="150">전자금융거래기본약관
+						<textarea rows="20" cols="150" readonly>전자금융거래기본약관
 						
 “이 약관은 공정거래위원회의 표준약관과 동일하지 않습니다.”
 
@@ -325,7 +325,7 @@
    						</textarea> 
 
 						<h1 align="left" class="agree-name"><span>전자뱅킹서비스 이용약관</span></h1> 
-						<textarea rows="30" cols="150">전자뱅킹서비스 이용약관
+						<textarea rows="30" cols="150" readonly>전자뱅킹서비스 이용약관
 						
 제1조 (목적)
 이 『전자뱅킹서비스 이용약관』(이하 "약관"이라 함)은 전자금융거래 기본약관에 근거하여 서비스의 제공자인 BGH은행(이하 "은행"이라 함)과 이용자간에 전자뱅킹 등의 서비스(이하 “서비스”라 함)이용에 관한 제반 사항을 정함을 목적으로 합니다.

@@ -97,7 +97,7 @@
 		<c:choose>
 		<c:when test="${ user.role == '1' }">
 			<div class="topMenu-item2">
-				<a href="#">상품관리</a>
+				<a href="${ pageContext.request.contextPath }/product.do">상품관리</a>
 			</div>
 			<div class="topMenu-item2">
 				<a href="${ pageContext.request.contextPath }/userList.do">회원관리</a>
