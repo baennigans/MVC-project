@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.user.UserService;

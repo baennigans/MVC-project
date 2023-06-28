@@ -84,7 +84,7 @@ table th:nth-child(4) {
 	font-weight: bold;
 	text-decoration: none;
 	color: #fff;
-	background-color: #CD0000;;
+	background-color: #CD0000;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -117,7 +117,6 @@ alert('<%= msg %>');
 	<section>
 		<div id="menu">
 			<h1>공지사항</h1>
-			
 			<c:if test="${ user.role == '1' }">
 				<form action="${ pageContext.request.contextPath }/insertNotice.do" method="post" class="form-container" id="insertNotice">
 				<input type="submit" value="공지사항 쓰기" id="admin2">

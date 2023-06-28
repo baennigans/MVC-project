@@ -117,7 +117,7 @@
 				<a href="${ pageContext.request.contextPath }/transferAccount.do">계좌이체</a>
 			</div>
 			<div class="topMenu-item3">
-				<a href="${ pageContext.request.contextPath }/insertAccount.do">계좌개설</a>
+				<a href="${ pageContext.request.contextPath }/createAccount.do">계좌개설</a>
 			</div>
 			<div class="topMenu-item3">
 				<a href="${ pageContext.request.contextPath }/deleteAccount.do">계좌해지</a>

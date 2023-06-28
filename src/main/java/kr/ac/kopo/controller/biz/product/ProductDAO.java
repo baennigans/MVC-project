@@ -15,10 +15,12 @@ public class ProductDAO {
 	private ResultSet rs;
 
 	private static String PRODUCT_LIST = "select * from B_PRODUCT ";
+	private static String PRODUCT_POSSIBLELIST = "select * from B_PRODUCT where product_possible='1' ";
 	private static String PRODUCT_POSSIBLE = "update B_PRODUCT set product_possible='1' where product_no=? ";
 	private static String PRODUCT_IMPOSSIBLE = "update B_PRODUCT set product_possible='0' where product_no=? ";
 	private static String PRODUCT_INSERT = "insert into B_PRODUCT (product_no, product_name, product_interest, product_possible) "
 			+ "values (seq_b_product_product_no.nextval, ?, ?, ?) ";
+	
 	
 	public List<ProductVO> getProductList(ProductVO vo) {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
@@ -81,5 +83,27 @@ public class ProductDAO {
 		} finally {
 			JDBCUtil.close(stmt, conn);
 		}
+	}
+
+	public List<ProductVO> getProductPossible(ProductVO vo) {
+		List<ProductVO> productList = new ArrayList<ProductVO>();
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(PRODUCT_POSSIBLELIST);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setNo(rs.getInt("PRODUCT_NO"));
+				product.setName(rs.getString("PRODUCT_NAME"));
+				product.setInterest(rs.getString("PRODUCT_INTEREST"));
+				product.setPossible(rs.getString("PRODUCT_POSSIBLE"));
+				productList.add(product);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return productList;
 	}
 }
