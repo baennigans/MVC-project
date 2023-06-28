@@ -16,12 +16,11 @@ public class InsertAccountController implements Controller {
 		ProductVO vo = new ProductVO();
 		ProductDAO dao = new ProductDAO();
 		
-		List<ProductVO> productList = dao.getProductList(vo);
+		List<ProductVO> productList = dao.getProductPossible(vo);
 		
 		request.setAttribute("productList", productList);
 		
 		
 		return "/jsp/account/insertAccount.jsp";
 	}
-
 }

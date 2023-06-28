@@ -110,7 +110,7 @@ input[type="text"], input[type="password"]{
 				<table border="1" class="insertAccount-table">
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="id" value="${user.name}" readonly></td>
+						<td><input type="text" name="username" value="${user.name}" readonly></td>
 					</tr>
 					<tr>
 						<td>상품</td>
@@ -125,7 +125,7 @@ input[type="text"], input[type="password"]{
 					<tr>
 						<td>계좌이름</td>
 						<td>
-							<input type="text" name="name"></td>
+							<input type="text" name="productname"></td>
 					</tr>
 					<tr>
 						<td>비밀번호(숫자 4자리)</td>
