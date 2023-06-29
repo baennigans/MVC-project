@@ -15,6 +15,9 @@ public class TransferDAO {
 	private ResultSet rs;
 	
 	private static String TRANSFER_LIST = "select * from B_TRANSFER where myaccount_no=? ";
+	private static String TRANSFER_INSERT = "insert into B_TRANSFER (transfer_no, myaccount_no, mybank_code, youraccount_no, yourbank_code, transfer_detail, transfer_amount) values (seq_b_transfer_transfer_no.nextval, ?, 'BGH', ?, ?, '출금', ? )";
+	
+	
 	
 	public List<TransferVO> transferList(TransferVO vo) {
 		List<TransferVO> transferList = new ArrayList<TransferVO>();
@@ -43,4 +46,21 @@ public class TransferDAO {
 		return transferList;
 	}
 
+
+	public void transferInsert(TransferVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(TRANSFER_INSERT);
+			stmt.setString(1, vo.getMyAccountNo());
+			stmt.setString(2, vo.getYourAccountNo());
+			stmt.setString(3, vo.getYourBankCode());
+			stmt.setInt(4, vo.getAmount());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	
 }

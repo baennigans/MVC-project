@@ -122,7 +122,7 @@ input[type="text"], input[type="password"]{
 							<select name="yourBankCode">
 							 	<option>=== 은행 선택 ===</option>
 								<c:forEach var="openbank" items="${openbankList}">
-									<option>${openbank.name}</option>
+									<option value="${openbank.bank}">${openbank.name}</option>
 								</c:forEach>
 							</select>
 						</td>

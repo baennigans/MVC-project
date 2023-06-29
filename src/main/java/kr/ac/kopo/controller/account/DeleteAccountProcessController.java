@@ -25,6 +25,7 @@ public class DeleteAccountProcessController implements Controller {
 		AccountListDAO dao = new AccountListDAO();
 		dao.deleteAccount(listvo);
 		
+		request.setAttribute("msg", "해지가 완료되었습니다.");
 		return "main.do";
 	}
 

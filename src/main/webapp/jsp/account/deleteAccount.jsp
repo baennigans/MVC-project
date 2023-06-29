@@ -57,7 +57,6 @@ table td:nth-child(2) {
 <script>
 	function checkForm() {
 		if (confirm("정말 해지하시겠습니까?")) {
-			alert("해지가 완료되었습니다.")
 			return true
 		} else {
 			return false

@@ -5,13 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>BGH BANK</title>
+<%
+String msg = (String) request.getAttribute("msg");
+if (msg != null && !msg.isEmpty()) {
+%>
+<script>
+alert('<%=msg%>
+	');
+</script>
+<%
+}
+%>
 </head>
 <body>
 	<header>
 		<%@ include file="topMenu.jsp"%>
 	</header>
-	<div id='wrapper'>
-  		<div>
 	<section>
 		<div>메인페이지....</div>
 	<br>
@@ -51,8 +60,6 @@
 	<br>
 	<br>
 	</section>
-		</div>
-	</div>
 	<footer>
 		<%@ include file="bottomMenu.jsp"%>
 	</footer>
