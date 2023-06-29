@@ -31,32 +31,63 @@ public class WrieTransferProcessController implements Controller {
 		account.setAccountNo(myAccountNo);
 		AccountService service = new AccountService();
 		account = service.getAccount(account);
-		
-//		if(account.getPassword() != Integer.parseInt(password)) {
-//			request.setAttribute("msg", "비밀번호를 잘못입력하였습니다.");
-//			return "main.do";
-//		}
+		if(account.getPassword() != Integer.parseInt(password)) {
+			request.setAttribute("msg", "계좌 비밀번호를 잘못입력하였습니다.");
+			return "main.do";
+		}
 		
 		TransferVO vo = new TransferVO();
 		TransferDAO dao = new TransferDAO();
-
 		vo.setMyAccountNo(myAccountNo);
 		vo.setYourBankCode(yourBankCode);
 		vo.setYourAccountNo(yourAccountNo);
 		vo.setAmount(Integer.parseInt(amount));
-		
 		dao.transferInsert(vo);
 		
-
 		
+		switch(yourBankCode) {
+		case "BGH":
+			System.out.println("BGHBank");
+			break;
+		case "0758":
+			System.out.println("하리은행");
+			break;
+		case "JH":
+			System.out.println("JH은행");
+			break;
+		case "H.J":
+			System.out.println("HJ은행");
+			break;
+		}
 		
-		
-		
-		
-		
-		
-		
-		return "login.do";
+		request.setAttribute("msg", "이체를 완료하였습니다.");
+		return "main.do";
 	}
-
+	
+	
+	
+	
+	public void HJ() {
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+

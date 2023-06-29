@@ -10,8 +10,7 @@ String msg = (String) request.getAttribute("msg");
 if (msg != null && !msg.isEmpty()) {
 %>
 <script>
-alert('<%=msg%>
-	');
+alert('<%=msg%>');
 </script>
 <%
 }
