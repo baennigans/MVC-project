@@ -36,7 +36,6 @@ public class InsertAccountProcessController implements Controller {
 		int randomNo3 = random.nextInt(90)+10;
 		String accountNo = randomNo1+"-"+randomNo2+"-"+randomNo3;
 		
-		
 		AccountListVO listvo = new AccountListVO();
 		listvo.setAccountNo(accountNo);
 		AccountListDAO listDao = new AccountListDAO();
@@ -54,6 +53,7 @@ public class InsertAccountProcessController implements Controller {
 		service.insertAccount(vo);
 		
 		request.setAttribute("msg", "계좌개설이 완료되었습니다.");
+		request.setAttribute("id", id);
 		
 		return "getAccount.do";
 	}

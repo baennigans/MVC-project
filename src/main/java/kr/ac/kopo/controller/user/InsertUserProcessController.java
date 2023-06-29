@@ -34,7 +34,6 @@ public class InsertUserProcessController implements Controller{
 		UserListVO listvo = new UserListVO();
 		listvo.setId(id);
 		UserListDAO dao = new UserListDAO();
-		listvo = dao.getUser(listvo);
 		
 		if (dao.getUser(listvo) != null) {
 			request.setAttribute("msg", "이미 존재하는 아이디입니다.");

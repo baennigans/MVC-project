@@ -5,7 +5,6 @@ public class AccountListVO {
 	private String accountNo;
 	private String possible;
 	
-	
 	public int getNo() {
 		return no;
 	}

@@ -8,6 +8,7 @@ public class AccountVO {
 	private int productNo;
 	private int password;
 	private int balance;
+	private String bank;
 	
 	
 	public String getAccountNo() {
@@ -52,10 +53,19 @@ public class AccountVO {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	public String getBank() {
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "AccountVO [accountNo=" + accountNo + ", id=" + id + ", userName=" + userName + ", accountName="
-				+ accountName + ", productNo=" + productNo + ", password=" + password + ", balance=" + balance + "]";
+				+ accountName + ", productNo=" + productNo + ", password=" + password + ", balance=" + balance
+				+ ", bank=" + bank + "]";
 	}
+	
 }

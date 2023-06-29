@@ -111,16 +111,16 @@
 		</c:when>
 		<c:otherwise>
 			<div class="topMenu-item3">
-				<a href="${ pageContext.request.contextPath }/getAccount.do">계좌조회</a>
+				<a href="${ pageContext.request.contextPath }/getAccount.do?id=${user.id}">계좌조회</a>
 			</div>
 			<div class="topMenu-item3">
-				<a href="${ pageContext.request.contextPath }/transferAccount.do">계좌이체</a>
+				<a href="${ pageContext.request.contextPath }/transferAccount.do?id=${user.id}">계좌이체</a>
 			</div>
 			<div class="topMenu-item3">
 				<a href="${ pageContext.request.contextPath }/createAccount.do">계좌개설</a>
 			</div>
 			<div class="topMenu-item3">
-				<a href="${ pageContext.request.contextPath }/deleteAccount.do">계좌해지</a>
+				<a href="${ pageContext.request.contextPath }/deleteAccount.do?id=${user.id}">계좌해지</a>
 			</div>
 			<div class="topMenu-item3">
 				<a href="${ pageContext.request.contextPath }/agree.do">약관동의</a>
