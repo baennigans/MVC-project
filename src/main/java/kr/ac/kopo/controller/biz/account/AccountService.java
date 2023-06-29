@@ -27,6 +27,11 @@ public class AccountService {
 	public void deleteAccount(AccountVO vo) {
 		accountDao.deleteAccount(vo);
 	}
+
+	public AccountVO getAccount(AccountVO vo) {
+		AccountVO account = accountDao.getAccount(vo);
+		return account;
+	}
 	
 	
 }

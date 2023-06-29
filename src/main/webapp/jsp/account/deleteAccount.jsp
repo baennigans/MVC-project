@@ -99,7 +99,7 @@ alert('<%=msg%>
 								<hr>
 								<h3>계좌이름 : ${account.accountName}</h3>
 								<hr>
-								<h2>잔액 : ${account.balance}원</h2>
+								<h2>${account.balance} 원</h2>
 								<input type="submit" value="해지하기" class="submit"/>
 							</form>
 						</td>

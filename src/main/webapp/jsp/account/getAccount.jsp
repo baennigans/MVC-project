@@ -83,13 +83,13 @@ alert('<%=msg%>
 								<img src="${ pageContext.request.contextPath }/images/logo1.png" alt="Bank 로고" class="logo-img">
 						</a></td>
 						<td>
-							<form action="${ pageContext.request.contextPath }/#.do" method="post">
+							<form action="${ pageContext.request.contextPath }/getTransfer.do?accountNo=${account.accountNo}" method="post">
 								<h3>계좌번호 : ${account.accountNo}</h3>
 								<hr>
 								<h3>계좌이름 : ${account.accountName}</h3>
 								<hr>
-								<h2>잔액 : ${account.balance}원</h2>
-								<input type="submit" value="조회하기" class="submit"/>
+								<h2>${account.balance} 원</h2>
+								<input type="submit" value="내역조회하기" class="submit"/>
 							</form>
 						</td>
 					</tr>

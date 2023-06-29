@@ -19,7 +19,7 @@ public class AccountDAO {
 	private static String MYACCOUNT_LIST = "select * from B_ACCOUNT where user_id=? ";
 	private static String DELETE_POSSIBLE = "select * from B_ACCOUNT where user_id=? and account_balance='0' ";
 	private static String ACCOUNT_DELETE = "delete B_ACCOUNT where account_no=? ";
-	
+	private static String ACCOUNT_GET = "select * from B_ACCOUNT where account_no=? ";
 	
 	
 	
@@ -110,5 +110,33 @@ public class AccountDAO {
 		} finally {
 			JDBCUtil.close(stmt, conn);
 		}
+	}
+
+
+
+	public AccountVO getAccount(AccountVO vo) {
+		AccountVO account = null;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(ACCOUNT_GET);
+			stmt.setString(1, vo.getAccountNo());
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				account = new AccountVO();
+				account.setAccountNo(rs.getString("account_no"));
+				account.setId(rs.getString("user_id"));
+				account.setUserName(rs.getString("user_name"));
+				account.setAccountName(rs.getString("account_name"));
+				account.setPassword(rs.getInt("account_pw"));
+				account.setBalance(rs.getInt("account_balance"));
+				account.setBank(rs.getString("bank_code"));
+				account.setProductNo(rs.getInt("product_no"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+		return account;
 	}
 }

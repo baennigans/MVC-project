@@ -10,6 +10,8 @@
 	<header>
 		<%@ include file="topMenu.jsp"%>
 	</header>
+	<div id='wrapper'>
+  		<div>
 	<section>
 		<div>메인페이지....</div>
 	<br>
@@ -49,6 +51,8 @@
 	<br>
 	<br>
 	</section>
+		</div>
+	</div>
 	<footer>
 		<%@ include file="bottomMenu.jsp"%>
 	</footer>

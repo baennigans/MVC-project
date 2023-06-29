@@ -23,6 +23,9 @@
 	margin-top: 10px;
 	font-weight: bold;
 }
+footer {
+    bottom: 0;
+}
 </style>
 </head>
 <body>
