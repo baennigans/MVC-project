@@ -20,7 +20,6 @@ public class InsertAccountController implements Controller {
 		
 		request.setAttribute("productList", productList);
 		
-		
 		return "/jsp/account/insertAccount.jsp";
 	}
 }

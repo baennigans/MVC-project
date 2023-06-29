@@ -107,6 +107,7 @@ input[type="text"], input[type="password"]{
 				<img src="${ pageContext.request.contextPath }/images/logo3.png" alt="Bank 로고" class="logo-img">
 			</a>
 			<form action="${ pageContext.request.contextPath }/insertAccountProcess.do" method="post" onsubmit="return checkForm()">
+				<input type="hidden" name="id" value="${user.id}" />
 				<table border="1" class="insertAccount-table">
 					<tr>
 						<td>이름</td>

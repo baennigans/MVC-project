@@ -12,8 +12,8 @@ public class AccountDAO {
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	private static String ACCOUNT_INSERT = "insert into B_ACCOUNT (account_no, user_name, account_name, product_no, account_pw, account_balance) "
-			+ "values (?, ?, ?, ?, ?, '0') ";
+	private static String ACCOUNT_INSERT = "insert into B_ACCOUNT (account_no, user_id, user_name, account_name, product_no, account_pw, account_balance) "
+			+ "values (?, ?, ?, ?, ?, ?, '0') ";
 	
 	
 	
@@ -22,10 +22,11 @@ public class AccountDAO {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(ACCOUNT_INSERT);
 			stmt.setString(1, vo.getAccountNo());
-			stmt.setString(2, vo.getUserName());
-			stmt.setString(3, vo.getAccountName());
-			stmt.setInt(4, vo.getProductNo());
-			stmt.setInt(5, vo.getPassword());
+			stmt.setString(2, vo.getId());
+			stmt.setString(3, vo.getUserName());
+			stmt.setString(4, vo.getAccountName());
+			stmt.setInt(5, vo.getProductNo());
+			stmt.setInt(6, vo.getPassword());
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

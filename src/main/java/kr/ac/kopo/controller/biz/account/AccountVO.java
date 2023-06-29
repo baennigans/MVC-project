@@ -2,6 +2,7 @@ package kr.ac.kopo.controller.biz.account;
 
 public class AccountVO {
 	private String accountNo;
+	private String id;
 	private String userName;
 	private String accountName;
 	private int productNo;
@@ -14,6 +15,12 @@ public class AccountVO {
 	}
 	public void setAccountNo(String accountNo) {
 		this.accountNo = accountNo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getUserName() {
 		return userName;
@@ -48,7 +55,7 @@ public class AccountVO {
 	
 	@Override
 	public String toString() {
-		return "AccountVO [accountNo=" + accountNo + ", userName=" + userName + ", accountName=" + accountName
-				+ ", productNo=" + productNo + ", password=" + password + ", balance=" + balance + "]";
+		return "AccountVO [accountNo=" + accountNo + ", id=" + id + ", userName=" + userName + ", accountName="
+				+ accountName + ", productNo=" + productNo + ", password=" + password + ", balance=" + balance + "]";
 	}
 }
