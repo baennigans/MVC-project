@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.board.BoardService;
@@ -13,6 +14,13 @@ public class BoardPagingController implements Controller {
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+		String login = (String) session.getAttribute("login");
+		if(login!="true") {
+			request.setAttribute("msg", "회원로그인을 진행해주세요");
+			return "login.do";
+		}
 		
 		int pageNo = 1;
 		try {

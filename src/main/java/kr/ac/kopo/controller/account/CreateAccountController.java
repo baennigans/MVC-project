@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.controller.Controller;
 import kr.ac.kopo.controller.biz.product.ProductDAO;
@@ -12,6 +13,19 @@ import kr.ac.kopo.controller.biz.product.ProductVO;
 public class CreateAccountController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+		String login = (String) session.getAttribute("login");
+		String agree = (String) session.getAttribute("agree");
+		
+		if(login!="true") {
+			request.setAttribute("msg", "회원로그인을 진행해주세요");
+			return "login.do";
+		}
+		if(agree!="1") {
+			request.setAttribute("msg", "약관동의를 하셔야 이용하실 수 있습니다.");
+			return "agree.do";
+		}
 		
 		ProductVO vo = new ProductVO();
 		ProductDAO dao = new ProductDAO();

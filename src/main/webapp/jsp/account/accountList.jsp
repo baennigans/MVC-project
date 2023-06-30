@@ -16,12 +16,14 @@
 	margin-top: 10px;
 }
 .container {
-	width: 900px;
+	width:1200px;
 	display: flex;
 	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.8);
 	padding-bottom: 20px;
 	margin: 0 auto;
 	margin-bottom: 100px;
+	margin-top: 38px;
 }
 .table-container {
 	table-layout: fixed;
@@ -35,7 +37,7 @@
 	border: 1px solid #ccc;
 	text-align: center;
 	color: #fff;
-	background-color: #CD0000;
+	background-color: #00008C;
 }
 .table-container td {
 	font-size: 14px;
@@ -46,13 +48,19 @@
 	background-color: #fff;
 }
 table th:nth-child(1) {
-	width: 15%;
+	width: 30%;
 }
 table th:nth-child(2) {
-	width: 60%;
+	width: 10%;
 }
 table th:nth-child(3) {
-	width: 25%;
+	width: 10%;
+}
+table th:nth-child(4) {
+	width: 30%;
+}
+table th:nth-child(5) {
+	width: 20%;
 }
 .form-container {
 	display: flex;
@@ -68,20 +76,15 @@ table th:nth-child(3) {
 	border-radius: 4px;
 }
 .form-container input[type="submit"] {
-	padding: 40px 80px;
-	margin-bottom: 50px;
-	font-size: 40px;
+	margin-left: 10px;
+	padding: 8px 16px;
+	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
 	color: #fff;
-	background-color: #CD0000;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-}
-#possible {
-	color: #A52A2A;
-	font-size: 25px;
 }
 </style>
 </head>
@@ -91,24 +94,24 @@ table th:nth-child(3) {
 	</header>
 	<section>
 		<div id="menu">
-			<h1>계좌개설</h1>
+			<h1>계좌관리</h1>
 		</div>
-		<form action="${ pageContext.request.contextPath }/insertAccount.do" method="post" class="form-container" id="insertProduct">
-			<input type="submit" value="계좌개설하기" id="admin">
-		</form>
 		<div class="container">
-			<h3 id="possible">가입가능상품</h3>
 			<table class="table-container">
 				<tr>
-					<th>상품번호</th>
-					<th>상품명</th>
-					<th>이자율</th>
+					<th>계좌번호</th>
+					<th>회원아이디</th>
+					<th>사용자이름</th>
+					<th>계좌이름</th>
+					<th>잔고</th>
 				</tr>
-				<c:forEach var="product" items="${productList}">
+				<c:forEach var="account" items="${accountList}">
 					<tr>
-						<td>${product.no}</td>
-						<td>${product.name}</td>
-						<td>${product.interest} %</td>
+						<td>${account.accountNo}</td>
+						<td>${account.id}</td>
+						<td>${account.userName}</td>
+						<td>${account.accountName}</td>
+						<td>${account.balance} 원</td>
 					</tr>
 				</c:forEach>
 			</table>

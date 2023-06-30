@@ -32,6 +32,11 @@ public class AccountService {
 		AccountVO account = accountDao.getAccount(vo);
 		return account;
 	}
+
+	public List<AccountVO> getAccountList(AccountVO vo) {
+		List<AccountVO> accountList = accountDao.getAccountList(vo);
+		return accountList;
+	}
 	
 	
 }
