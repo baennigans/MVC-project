@@ -126,7 +126,7 @@ input[type="text"], input[type="password"]{
 					<tr>
 						<td>계좌이름</td>
 						<td>
-							<input type="text" name="productname"></td>
+							<input type="text" name="productname" pattern=".{2,}" title="2자 이상 입력하세요" required></td>
 					</tr>
 					<tr>
 						<td>비밀번호(숫자 4자리)</td>

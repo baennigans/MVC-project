@@ -103,7 +103,7 @@ input[type="text"], textarea {
 				<table border="1" class="getboard">
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="title" /></td>
+						<td><input type="text" name="title" pattern=".{5,}" title="5자 이상 입력하세요" required/></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
