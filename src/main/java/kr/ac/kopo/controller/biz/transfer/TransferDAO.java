@@ -1,8 +1,10 @@
 package kr.ac.kopo.controller.biz.transfer;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,5 +64,33 @@ public class TransferDAO {
 			JDBCUtil.close(stmt, conn);
 		}
 	}
-	
+
+
+	public int transfer(TransferVO vo, String name) {
+		int result = 0;
+		StringBuilder sql = new StringBuilder();
+        sql.append("{call P_BANK_TRANSFER(?, ?, ?, ?, ?, ?, ?, ?) }");
+        try {
+            conn = JDBCUtil.getConnection();
+            CallableStatement cstmt = conn.prepareCall(sql.toString());
+            cstmt.setString(1, vo.getMyAccountNo());
+            cstmt.setString(2, vo.getMyBankCode());
+            cstmt.setString(3, name);
+            cstmt.setString(4, vo.getYourAccountNo());
+            cstmt.setString(5, vo.getYourBankCode());
+            cstmt.setString(6, "null");
+            cstmt.setLong(7, vo.getAmount());
+            cstmt.registerOutParameter(8, Types.INTEGER);
+            cstmt.execute();
+
+            // 결과값 가져오기
+            result = cstmt.getInt(8);
+            cstmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(stmt, conn);
+        }
+        return result;
+    }
 }

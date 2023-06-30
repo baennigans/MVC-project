@@ -22,15 +22,18 @@ public class WrieTransferProcessController implements Controller {
 		}
 		
 		String myAccountNo = request.getParameter("myAccountNo");
-		String yourBankCode = request.getParameter("yourBankCode");
+		String myBankCode = "BGH";
 		String yourAccountNo = request.getParameter("yourAccountNo");
+		String yourBankCode = request.getParameter("yourBankCode");
+		String detail = "출금";
 		String amount = request.getParameter("amount");
-		String password = request.getParameter("password");
 		
+		String password = request.getParameter("password");
 		AccountVO account = new AccountVO();
 		account.setAccountNo(myAccountNo);
 		AccountService service = new AccountService();
 		account = service.getAccount(account);
+		String name = account.getUserName();
 		if(account.getPassword() != Integer.parseInt(password)) {
 			request.setAttribute("msg", "계좌 비밀번호를 잘못입력하였습니다.");
 			return "main.do";
@@ -39,55 +42,20 @@ public class WrieTransferProcessController implements Controller {
 		TransferVO vo = new TransferVO();
 		TransferDAO dao = new TransferDAO();
 		vo.setMyAccountNo(myAccountNo);
-		vo.setYourBankCode(yourBankCode);
+		vo.setMyBankCode(myBankCode);
 		vo.setYourAccountNo(yourAccountNo);
+		vo.setYourBankCode(yourBankCode);
+		vo.setDetail(detail);
 		vo.setAmount(Integer.parseInt(amount));
-		dao.transferInsert(vo);
+		int success = dao.transfer(vo, name);
 		
 		
-		switch(yourBankCode) {
-		case "BGH":
-			System.out.println("BGHBank");
-			break;
-		case "0758":
-			System.out.println("하리은행");
-			break;
-		case "JH":
-			System.out.println("JH은행");
-			break;
-		case "H.J":
-			System.out.println("HJ은행");
-			break;
+		if(success==1) {
+			request.setAttribute("msg", "이체를 완료하였습니다.");
+		} else {			
+			request.setAttribute("msg", "이체에 실패하였습니다.");
 		}
-		
-		request.setAttribute("msg", "이체를 완료하였습니다.");
-		return "main.do";
+		return "main.do";			
 	}
-	
-	
-	
-	
-	public void HJ() {
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
