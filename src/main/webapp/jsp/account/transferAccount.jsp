@@ -53,6 +53,16 @@ table td:nth-child(2) {
 	border-radius: 4px;
 	cursor: pointer;
 }
+#wrapper{
+  height: auto;
+  min-height: 800px;
+  padding-bottom: 70px;
+}
+footer{
+  height: 20px;
+  position : relative;
+  transform : translateY(-100%);
+}
 </style>
 <%
 String msg = (String) request.getAttribute("msg");
@@ -67,6 +77,7 @@ alert('<%=msg%>
 %>
 </head>
 <body>
+	<div id="wrapper">
 	<header>
 		<jsp:include page="../topMenu.jsp" />
 	</header>
@@ -98,6 +109,7 @@ alert('<%=msg%>
 			</div>
 		</c:forEach>
 	</section>
+	</div>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
 	</footer>

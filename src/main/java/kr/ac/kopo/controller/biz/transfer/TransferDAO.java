@@ -16,10 +16,8 @@ public class TransferDAO {
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	private static String TRANSFER_LIST = "select * from B_TRANSFER where myaccount_no=? ";
+	private static String TRANSFER_LIST = "select * from B_TRANSFER where myaccount_no=? order by transfer_no desc";
 	private static String TRANSFER_INSERT = "insert into B_TRANSFER (transfer_no, myaccount_no, mybank_code, youraccount_no, yourbank_code, transfer_detail, transfer_amount) values (seq_b_transfer_transfer_no.nextval, ?, 'BGH', ?, ?, '출금', ? )";
-	
-	
 	
 	public List<TransferVO> transferList(TransferVO vo) {
 		List<TransferVO> transferList = new ArrayList<TransferVO>();
@@ -82,8 +80,7 @@ public class TransferDAO {
             cstmt.setLong(7, vo.getAmount());
             cstmt.registerOutParameter(8, Types.INTEGER);
             cstmt.execute();
-
-            // 결과값 가져오기
+            
             result = cstmt.getInt(8);
             cstmt.close();
         } catch (Exception e) {

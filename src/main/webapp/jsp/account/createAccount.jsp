@@ -83,9 +83,20 @@ table th:nth-child(3) {
 	color: #A52A2A;
 	font-size: 25px;
 }
+#wrapper{
+  height: auto;
+  min-height: 800px;
+  padding-bottom: 70px;
+}
+footer{
+  height: 20px;
+  position : relative;
+  transform : translateY(-100%);
+}
 </style>
 </head>
 <body>
+	<div id="wrapper">
 	<header>
 		<jsp:include page="../topMenu.jsp" />
 	</header>
@@ -114,6 +125,7 @@ table th:nth-child(3) {
 			</table>
 		</div>
 	</section>
+	</div>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
 	</footer>

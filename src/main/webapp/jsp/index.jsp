@@ -16,49 +16,27 @@ alert('<%=msg%>');
 }
 %>
 </head>
+<style>
+#wrapper{
+  height: auto;
+  min-height: 800px;
+  padding-bottom: 70px;
+}
+footer{
+  height: 20px;
+  position : relative;
+  transform : translateY(-100%);
+}
+</style>
 <body>
+	<div id="wrapper">
 	<header>
 		<%@ include file="topMenu.jsp"%>
 	</header>
 	<section>
 		<div>메인페이지....</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	</section>
+	</div>
 	<footer>
 		<%@ include file="bottomMenu.jsp"%>
 	</footer>

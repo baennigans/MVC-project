@@ -67,7 +67,7 @@ table th:nth-child(4) {
 .form-container {
 	display: flex;
 	justify-content: center;
-	margin-top: 40px;
+	margin-top: 15px;
 	margin-bottom: 50px;
 }
 .form-container input[type="text"] {
@@ -92,7 +92,6 @@ table th:nth-child(4) {
 #paging {
 	border: none;
 	border-collapse: collapse;
-	margin-top: 30px;
 }
 .page{
 	font-size: 20px;

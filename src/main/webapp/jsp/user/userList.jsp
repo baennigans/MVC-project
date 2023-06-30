@@ -78,6 +78,16 @@ table th:nth-child(8) {
 table th:nth-child(9) {
 	width: 8%;
 }
+#wrapper{
+  height: auto;
+  min-height: 800px;
+  padding-bottom: 70px;
+}
+footer{
+  height: 20px;
+  position : relative;
+  transform : translateY(-100%);
+}
 </style>
 <script>
 	function checkForm() {
@@ -90,6 +100,7 @@ table th:nth-child(9) {
 </script>
 </head>
 <body>
+	<div id="wrapper">
 	<header>
 		<jsp:include page="../topMenu.jsp" />
 	</header>
@@ -138,6 +149,7 @@ table th:nth-child(9) {
 			</table>
 		</div>
 	</section>
+	</div>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
 	</footer>

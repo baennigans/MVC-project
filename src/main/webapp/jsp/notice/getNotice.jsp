@@ -122,7 +122,6 @@ input[type="text"], textarea {
 			</c:if>
 			<a href="${ pageContext.request.contextPath }/noticePaging.do" id="getlist">목록으로</a>
 		</div>
-		<jsp:include page="/jsp/notice/comment.jsp" />
 	</section>
 	<footer>
 		<jsp:include page="../bottomMenu.jsp" />
