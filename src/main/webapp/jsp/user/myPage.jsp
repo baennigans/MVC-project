@@ -107,11 +107,11 @@ alert('<%= msg %>');
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="password" id="password" value="${user.password}"/>
+					<td><input type="password" name="password" id="password" value="${user.password}" pattern=".{5,}" title="5자 이상 입력하세요" required/>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" id="name" value="${user.name}"/>
+					<td><input type="text" name="name" id="name" value="${user.name}" pattern=".{2,}" title="2자 이상 입력하세요" required/>
 				</tr>
 				<tr>
 					<td>생년월일</td>
@@ -122,13 +122,13 @@ alert('<%= msg %>');
 				<tr>
 					<td>이메일</td>
 					<td>
-						<input type="text" name="email" id="email" value="${user.email}" />
+						<input type="text" name="email" id="email" value="${user.email}" pattern=".{10,}" title="10자 이상 입력하세요" required/>
 					</td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input type="text" name="phone" id="phone" value="${user.phone}" />
+						<input type="text" name="phone" id="phone" value="${user.phone}" pattern=".{9,}" title="9자 이상 입력하세요" required/>
 					</td>
 				</tr>
 				<tr>

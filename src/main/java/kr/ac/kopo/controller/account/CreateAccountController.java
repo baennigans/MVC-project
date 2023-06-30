@@ -18,11 +18,11 @@ public class CreateAccountController implements Controller {
 		String login = (String) session.getAttribute("login");
 		String agree = (String) session.getAttribute("agree");
 		
-		if(login!="true") {
+		if(!"true".equals(login)) {
 			request.setAttribute("msg", "회원로그인을 진행해주세요");
 			return "login.do";
 		}
-		if(agree!="1") {
+		if(!"1".equals(agree)) {
 			request.setAttribute("msg", "약관동의를 하셔야 이용하실 수 있습니다.");
 			return "agree.do";
 		}

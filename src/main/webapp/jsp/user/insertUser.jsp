@@ -98,15 +98,15 @@ alert('<%= msg %>');
 				<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" id="id"/>
+					<td><input type="text" name="id" id="id" pattern=".{5,}" title="5자 이상 입력하세요" required/>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="password" id="password"/>
+					<td><input type="password" name="password" id="password" pattern=".{5,}" title="5자 이상 입력하세요" required/>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" id="name"/>
+					<td><input type="text" name="name" id="name" pattern=".{2,}" title="2자 이상 입력하세요" required/>
 				</tr>
 				<tr>
 					<td>생년월일</td>
@@ -117,7 +117,7 @@ alert('<%= msg %>');
 				<tr>
 					<td>이메일</td>
 					<td>
-						<input type="text" name="emailId" id="email"/> @
+						<input type="text" name="emailId" id="email" pattern=".{5,}" title="5자 이상 입력하세요" required/> @
 						<select name="emailDomain" id="emailselect">
 							<option value="naver.com">naver.com</option>
 							<option value="gmail.com">gmail.com</option>
@@ -133,8 +133,8 @@ alert('<%= msg %>');
 							<option>031</option>
 							<option>02</option>
 						</select>
-						 - <input type="text" name="phone2" size="5" id="phone2">
-						 - <input type="text" name="phone3" size="5" id="phone3"> 
+						 - <input type="text" name="phone2" size="5" id="phone2" pattern="\d{3,4}" title="3~4자리숫자를 입력하세요" required>
+						 - <input type="text" name="phone3" size="5" id="phone3" pattern="\d{3,4}" title="3~4자리숫자를 입력하세요" required> 
 					</td>
 				</tr>
 				<tr>
