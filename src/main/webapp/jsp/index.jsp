@@ -17,6 +17,12 @@ alert('<%=msg%>');
 %>
 </head>
 <style>
+.main{
+	display: flex;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
 #wrapper{
   height: auto;
   min-height: 800px;
@@ -34,7 +40,9 @@ footer{
 		<%@ include file="topMenu.jsp"%>
 	</header>
 	<section>
-		<div>메인페이지....</div>
+		<div>
+			<img src="${ pageContext.request.contextPath }/images/main.png" alt="메인" class="main">
+		</div>
 	</section>
 	</div>
 	<footer>
