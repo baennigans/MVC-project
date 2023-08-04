@@ -19,9 +19,9 @@ public class DispatcherServlet extends HttpServlet {
 
 		String propLoc = config.getInitParameter("propLoc");
 		mappings = new HandlerMapping(propLoc);
-
 	}
 
+	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

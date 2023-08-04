@@ -28,7 +28,7 @@
 	</header>
 	<section>
 	<div id="menu">
-			<h1>은행소개</h1>
+			<h1>은행소개 및 경영이념</h1>
 	</div>
 	<div class="bank-introduce">
 		<img alt="경영이념" src="${ pageContext.request.contextPath }/images/bankinfo.jpg">	

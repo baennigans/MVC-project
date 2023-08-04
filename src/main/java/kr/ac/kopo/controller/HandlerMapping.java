@@ -35,9 +35,9 @@ public class HandlerMapping {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	
 	public HandlerMapping(String propLoc) {
 		mappings = new HashMap<>();
 		Properties prop = new Properties();
@@ -56,13 +56,12 @@ public class HandlerMapping {
 
 				mappings.put(key.toString(), (Controller) constructor.newInstance());
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	
 	public Controller getController(String uri) {
 
 		return mappings.get(uri);

@@ -28,7 +28,6 @@ public class DeleteAccountController implements Controller {
 		}
 		
 		String id = request.getParameter("id");
-		
 		AccountVO vo = new AccountVO();
 		vo.setId(id);
 
